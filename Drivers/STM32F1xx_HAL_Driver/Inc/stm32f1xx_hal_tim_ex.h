@@ -47,16 +47,16 @@ extern "C" {
 
 typedef struct
 {
-  uint32_t IC1Polarity;         /*!< Specifies the active edge of the input signal.
+	uint32_t IC1Polarity;         /*!< Specifies the active edge of the input signal.
                                      This parameter can be a value of @ref TIM_Input_Capture_Polarity */
 
-  uint32_t IC1Prescaler;        /*!< Specifies the Input Capture Prescaler.
+	uint32_t IC1Prescaler;        /*!< Specifies the Input Capture Prescaler.
                                      This parameter can be a value of @ref TIM_Input_Capture_Prescaler */
 
-  uint32_t IC1Filter;           /*!< Specifies the input capture filter.
+	uint32_t IC1Filter;           /*!< Specifies the input capture filter.
                                      This parameter can be a number between Min_Data = 0x0 and Max_Data = 0xF */
 
-  uint32_t Commutation_Delay;   /*!< Specifies the pulse value to be loaded into the Capture Compare Register.
+	uint32_t Commutation_Delay;   /*!< Specifies the pulse value to be loaded into the Capture Compare Register.
                                      This parameter can be a number between Min_Data = 0x0000 and Max_Data = 0xFFFF */
 } TIM_HallSensor_InitTypeDef;
 /**
@@ -191,15 +191,15 @@ HAL_StatusTypeDef HAL_TIMEx_OnePulseN_Stop_IT(TIM_HandleTypeDef *htim, uint32_t 
   */
 /* Extended Control functions  ************************************************/
 HAL_StatusTypeDef HAL_TIMEx_ConfigCommutEvent(TIM_HandleTypeDef *htim, uint32_t  InputTrigger,
-                                              uint32_t  CommutationSource);
+    uint32_t  CommutationSource);
 HAL_StatusTypeDef HAL_TIMEx_ConfigCommutEvent_IT(TIM_HandleTypeDef *htim, uint32_t  InputTrigger,
-                                                 uint32_t  CommutationSource);
+    uint32_t  CommutationSource);
 HAL_StatusTypeDef HAL_TIMEx_ConfigCommutEvent_DMA(TIM_HandleTypeDef *htim, uint32_t  InputTrigger,
-                                                  uint32_t  CommutationSource);
+    uint32_t  CommutationSource);
 HAL_StatusTypeDef HAL_TIMEx_MasterConfigSynchronization(TIM_HandleTypeDef *htim,
-                                                        TIM_MasterConfigTypeDef *sMasterConfig);
+    TIM_MasterConfigTypeDef *sMasterConfig);
 HAL_StatusTypeDef HAL_TIMEx_ConfigBreakDeadTime(TIM_HandleTypeDef *htim,
-                                                TIM_BreakDeadTimeConfigTypeDef *sBreakDeadTimeConfig);
+    TIM_BreakDeadTimeConfigTypeDef *sBreakDeadTimeConfig);
 HAL_StatusTypeDef HAL_TIMEx_RemapConfig(TIM_HandleTypeDef *htim, uint32_t Remap);
 /**
   * @}

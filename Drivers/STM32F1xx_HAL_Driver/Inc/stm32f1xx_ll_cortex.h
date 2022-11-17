@@ -230,7 +230,7 @@ extern "C" {
   */
 __STATIC_INLINE uint32_t LL_SYSTICK_IsActiveCounterFlag(void)
 {
-  return ((SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk) == (SysTick_CTRL_COUNTFLAG_Msk));
+	return ((SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk) == (SysTick_CTRL_COUNTFLAG_Msk));
 }
 
 /**
@@ -243,14 +243,14 @@ __STATIC_INLINE uint32_t LL_SYSTICK_IsActiveCounterFlag(void)
   */
 __STATIC_INLINE void LL_SYSTICK_SetClkSource(uint32_t Source)
 {
-  if (Source == LL_SYSTICK_CLKSOURCE_HCLK)
-  {
-    SET_BIT(SysTick->CTRL, LL_SYSTICK_CLKSOURCE_HCLK);
-  }
-  else
-  {
-    CLEAR_BIT(SysTick->CTRL, LL_SYSTICK_CLKSOURCE_HCLK);
-  }
+	if (Source == LL_SYSTICK_CLKSOURCE_HCLK)
+	{
+		SET_BIT(SysTick->CTRL, LL_SYSTICK_CLKSOURCE_HCLK);
+	}
+	else
+	{
+		CLEAR_BIT(SysTick->CTRL, LL_SYSTICK_CLKSOURCE_HCLK);
+	}
 }
 
 /**
@@ -262,7 +262,7 @@ __STATIC_INLINE void LL_SYSTICK_SetClkSource(uint32_t Source)
   */
 __STATIC_INLINE uint32_t LL_SYSTICK_GetClkSource(void)
 {
-  return READ_BIT(SysTick->CTRL, LL_SYSTICK_CLKSOURCE_HCLK);
+	return READ_BIT(SysTick->CTRL, LL_SYSTICK_CLKSOURCE_HCLK);
 }
 
 /**
@@ -272,7 +272,7 @@ __STATIC_INLINE uint32_t LL_SYSTICK_GetClkSource(void)
   */
 __STATIC_INLINE void LL_SYSTICK_EnableIT(void)
 {
-  SET_BIT(SysTick->CTRL, SysTick_CTRL_TICKINT_Msk);
+	SET_BIT(SysTick->CTRL, SysTick_CTRL_TICKINT_Msk);
 }
 
 /**
@@ -282,7 +282,7 @@ __STATIC_INLINE void LL_SYSTICK_EnableIT(void)
   */
 __STATIC_INLINE void LL_SYSTICK_DisableIT(void)
 {
-  CLEAR_BIT(SysTick->CTRL, SysTick_CTRL_TICKINT_Msk);
+	CLEAR_BIT(SysTick->CTRL, SysTick_CTRL_TICKINT_Msk);
 }
 
 /**
@@ -292,7 +292,7 @@ __STATIC_INLINE void LL_SYSTICK_DisableIT(void)
   */
 __STATIC_INLINE uint32_t LL_SYSTICK_IsEnabledIT(void)
 {
-  return (READ_BIT(SysTick->CTRL, SysTick_CTRL_TICKINT_Msk) == (SysTick_CTRL_TICKINT_Msk));
+	return (READ_BIT(SysTick->CTRL, SysTick_CTRL_TICKINT_Msk) == (SysTick_CTRL_TICKINT_Msk));
 }
 
 /**
@@ -310,8 +310,8 @@ __STATIC_INLINE uint32_t LL_SYSTICK_IsEnabledIT(void)
   */
 __STATIC_INLINE void LL_LPM_EnableSleep(void)
 {
-  /* Clear SLEEPDEEP bit of Cortex System Control Register */
-  CLEAR_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SLEEPDEEP_Msk));
+	/* Clear SLEEPDEEP bit of Cortex System Control Register */
+	CLEAR_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SLEEPDEEP_Msk));
 }
 
 /**
@@ -321,8 +321,8 @@ __STATIC_INLINE void LL_LPM_EnableSleep(void)
   */
 __STATIC_INLINE void LL_LPM_EnableDeepSleep(void)
 {
-  /* Set SLEEPDEEP bit of Cortex System Control Register */
-  SET_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SLEEPDEEP_Msk));
+	/* Set SLEEPDEEP bit of Cortex System Control Register */
+	SET_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SLEEPDEEP_Msk));
 }
 
 /**
@@ -334,8 +334,8 @@ __STATIC_INLINE void LL_LPM_EnableDeepSleep(void)
   */
 __STATIC_INLINE void LL_LPM_EnableSleepOnExit(void)
 {
-  /* Set SLEEPONEXIT bit of Cortex System Control Register */
-  SET_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SLEEPONEXIT_Msk));
+	/* Set SLEEPONEXIT bit of Cortex System Control Register */
+	SET_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SLEEPONEXIT_Msk));
 }
 
 /**
@@ -345,8 +345,8 @@ __STATIC_INLINE void LL_LPM_EnableSleepOnExit(void)
   */
 __STATIC_INLINE void LL_LPM_DisableSleepOnExit(void)
 {
-  /* Clear SLEEPONEXIT bit of Cortex System Control Register */
-  CLEAR_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SLEEPONEXIT_Msk));
+	/* Clear SLEEPONEXIT bit of Cortex System Control Register */
+	CLEAR_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SLEEPONEXIT_Msk));
 }
 
 /**
@@ -357,8 +357,8 @@ __STATIC_INLINE void LL_LPM_DisableSleepOnExit(void)
   */
 __STATIC_INLINE void LL_LPM_EnableEventOnPend(void)
 {
-  /* Set SEVEONPEND bit of Cortex System Control Register */
-  SET_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SEVONPEND_Msk));
+	/* Set SEVEONPEND bit of Cortex System Control Register */
+	SET_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SEVONPEND_Msk));
 }
 
 /**
@@ -369,8 +369,8 @@ __STATIC_INLINE void LL_LPM_EnableEventOnPend(void)
   */
 __STATIC_INLINE void LL_LPM_DisableEventOnPend(void)
 {
-  /* Clear SEVEONPEND bit of Cortex System Control Register */
-  CLEAR_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SEVONPEND_Msk));
+	/* Clear SEVEONPEND bit of Cortex System Control Register */
+	CLEAR_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SEVONPEND_Msk));
 }
 
 /**
@@ -392,8 +392,8 @@ __STATIC_INLINE void LL_LPM_DisableEventOnPend(void)
   */
 __STATIC_INLINE void LL_HANDLER_EnableFault(uint32_t Fault)
 {
-  /* Enable the system handler fault */
-  SET_BIT(SCB->SHCSR, Fault);
+	/* Enable the system handler fault */
+	SET_BIT(SCB->SHCSR, Fault);
 }
 
 /**
@@ -407,8 +407,8 @@ __STATIC_INLINE void LL_HANDLER_EnableFault(uint32_t Fault)
   */
 __STATIC_INLINE void LL_HANDLER_DisableFault(uint32_t Fault)
 {
-  /* Disable the system handler fault */
-  CLEAR_BIT(SCB->SHCSR, Fault);
+	/* Disable the system handler fault */
+	CLEAR_BIT(SCB->SHCSR, Fault);
 }
 
 /**
@@ -426,7 +426,7 @@ __STATIC_INLINE void LL_HANDLER_DisableFault(uint32_t Fault)
   */
 __STATIC_INLINE uint32_t LL_CPUID_GetImplementer(void)
 {
-  return (uint32_t)(READ_BIT(SCB->CPUID, SCB_CPUID_IMPLEMENTER_Msk) >> SCB_CPUID_IMPLEMENTER_Pos);
+	return (uint32_t)(READ_BIT(SCB->CPUID, SCB_CPUID_IMPLEMENTER_Msk) >> SCB_CPUID_IMPLEMENTER_Pos);
 }
 
 /**
@@ -436,7 +436,7 @@ __STATIC_INLINE uint32_t LL_CPUID_GetImplementer(void)
   */
 __STATIC_INLINE uint32_t LL_CPUID_GetVariant(void)
 {
-  return (uint32_t)(READ_BIT(SCB->CPUID, SCB_CPUID_VARIANT_Msk) >> SCB_CPUID_VARIANT_Pos);
+	return (uint32_t)(READ_BIT(SCB->CPUID, SCB_CPUID_VARIANT_Msk) >> SCB_CPUID_VARIANT_Pos);
 }
 
 /**
@@ -446,7 +446,7 @@ __STATIC_INLINE uint32_t LL_CPUID_GetVariant(void)
   */
 __STATIC_INLINE uint32_t LL_CPUID_GetConstant(void)
 {
-  return (uint32_t)(READ_BIT(SCB->CPUID, SCB_CPUID_ARCHITECTURE_Msk) >> SCB_CPUID_ARCHITECTURE_Pos);
+	return (uint32_t)(READ_BIT(SCB->CPUID, SCB_CPUID_ARCHITECTURE_Msk) >> SCB_CPUID_ARCHITECTURE_Pos);
 }
 
 /**
@@ -456,7 +456,7 @@ __STATIC_INLINE uint32_t LL_CPUID_GetConstant(void)
   */
 __STATIC_INLINE uint32_t LL_CPUID_GetParNo(void)
 {
-  return (uint32_t)(READ_BIT(SCB->CPUID, SCB_CPUID_PARTNO_Msk) >> SCB_CPUID_PARTNO_Pos);
+	return (uint32_t)(READ_BIT(SCB->CPUID, SCB_CPUID_PARTNO_Msk) >> SCB_CPUID_PARTNO_Pos);
 }
 
 /**
@@ -466,7 +466,7 @@ __STATIC_INLINE uint32_t LL_CPUID_GetParNo(void)
   */
 __STATIC_INLINE uint32_t LL_CPUID_GetRevision(void)
 {
-  return (uint32_t)(READ_BIT(SCB->CPUID, SCB_CPUID_REVISION_Msk) >> SCB_CPUID_REVISION_Pos);
+	return (uint32_t)(READ_BIT(SCB->CPUID, SCB_CPUID_REVISION_Msk) >> SCB_CPUID_REVISION_Pos);
 }
 
 /**
@@ -490,12 +490,12 @@ __STATIC_INLINE uint32_t LL_CPUID_GetRevision(void)
   */
 __STATIC_INLINE void LL_MPU_Enable(uint32_t Options)
 {
-  /* Enable the MPU*/
-  WRITE_REG(MPU->CTRL, (MPU_CTRL_ENABLE_Msk | Options));
-  /* Ensure MPU settings take effects */
-  __DSB();
-  /* Sequence instruction fetches using update settings */
-  __ISB();
+	/* Enable the MPU*/
+	WRITE_REG(MPU->CTRL, (MPU_CTRL_ENABLE_Msk | Options));
+	/* Ensure MPU settings take effects */
+	__DSB();
+	/* Sequence instruction fetches using update settings */
+	__ISB();
 }
 
 /**
@@ -505,10 +505,10 @@ __STATIC_INLINE void LL_MPU_Enable(uint32_t Options)
   */
 __STATIC_INLINE void LL_MPU_Disable(void)
 {
-  /* Make sure outstanding transfers are done */
-  __DMB();
-  /* Disable MPU*/
-  WRITE_REG(MPU->CTRL, 0U);
+	/* Make sure outstanding transfers are done */
+	__DMB();
+	/* Disable MPU*/
+	WRITE_REG(MPU->CTRL, 0U);
 }
 
 /**
@@ -518,7 +518,7 @@ __STATIC_INLINE void LL_MPU_Disable(void)
   */
 __STATIC_INLINE uint32_t LL_MPU_IsEnabled(void)
 {
-  return (READ_BIT(MPU->CTRL, MPU_CTRL_ENABLE_Msk) == (MPU_CTRL_ENABLE_Msk));
+	return (READ_BIT(MPU->CTRL, MPU_CTRL_ENABLE_Msk) == (MPU_CTRL_ENABLE_Msk));
 }
 
 /**
@@ -537,10 +537,10 @@ __STATIC_INLINE uint32_t LL_MPU_IsEnabled(void)
   */
 __STATIC_INLINE void LL_MPU_EnableRegion(uint32_t Region)
 {
-  /* Set Region number */
-  WRITE_REG(MPU->RNR, Region);
-  /* Enable the MPU region */
-  SET_BIT(MPU->RASR, MPU_RASR_ENABLE_Msk);
+	/* Set Region number */
+	WRITE_REG(MPU->RNR, Region);
+	/* Enable the MPU region */
+	SET_BIT(MPU->RASR, MPU_RASR_ENABLE_Msk);
 }
 
 /**
@@ -583,12 +583,12 @@ __STATIC_INLINE void LL_MPU_EnableRegion(uint32_t Region)
   */
 __STATIC_INLINE void LL_MPU_ConfigRegion(uint32_t Region, uint32_t SubRegionDisable, uint32_t Address, uint32_t Attributes)
 {
-  /* Set Region number */
-  WRITE_REG(MPU->RNR, Region);
-  /* Set base address */
-  WRITE_REG(MPU->RBAR, (Address & 0xFFFFFFE0U));
-  /* Configure MPU */
-  WRITE_REG(MPU->RASR, (MPU_RASR_ENABLE_Msk | Attributes | SubRegionDisable << MPU_RASR_SRD_Pos));
+	/* Set Region number */
+	WRITE_REG(MPU->RNR, Region);
+	/* Set base address */
+	WRITE_REG(MPU->RBAR, (Address & 0xFFFFFFE0U));
+	/* Configure MPU */
+	WRITE_REG(MPU->RASR, (MPU_RASR_ENABLE_Msk | Attributes | SubRegionDisable << MPU_RASR_SRD_Pos));
 }
 
 /**
@@ -608,10 +608,10 @@ __STATIC_INLINE void LL_MPU_ConfigRegion(uint32_t Region, uint32_t SubRegionDisa
   */
 __STATIC_INLINE void LL_MPU_DisableRegion(uint32_t Region)
 {
-  /* Set Region number */
-  WRITE_REG(MPU->RNR, Region);
-  /* Disable the MPU region */
-  CLEAR_BIT(MPU->RASR, MPU_RASR_ENABLE_Msk);
+	/* Set Region number */
+	WRITE_REG(MPU->RNR, Region);
+	/* Disable the MPU region */
+	CLEAR_BIT(MPU->RASR, MPU_RASR_ENABLE_Msk);
 }
 
 /**
