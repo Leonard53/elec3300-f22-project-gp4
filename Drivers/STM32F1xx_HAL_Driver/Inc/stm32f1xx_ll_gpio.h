@@ -74,25 +74,25 @@ extern "C" {
   */
 typedef struct
 {
-	uint32_t Pin;          /*!< Specifies the GPIO pins to be configured.
+  uint32_t Pin;          /*!< Specifies the GPIO pins to be configured.
                               This parameter can be any value of @ref GPIO_LL_EC_PIN */
 
-	uint32_t Mode;         /*!< Specifies the operating mode for the selected pins.
+  uint32_t Mode;         /*!< Specifies the operating mode for the selected pins.
                               This parameter can be a value of @ref GPIO_LL_EC_MODE.
 
                               GPIO HW configuration can be modified afterwards using unitary function @ref LL_GPIO_SetPinMode().*/
 
-	uint32_t Speed;        /*!< Specifies the speed for the selected pins.
+  uint32_t Speed;        /*!< Specifies the speed for the selected pins.
                               This parameter can be a value of @ref GPIO_LL_EC_SPEED.
 
                               GPIO HW configuration can be modified afterwards using unitary function @ref LL_GPIO_SetPinSpeed().*/
 
-	uint32_t OutputType;   /*!< Specifies the operating output type for the selected pins.
+  uint32_t OutputType;   /*!< Specifies the operating output type for the selected pins.
                               This parameter can be a value of @ref GPIO_LL_EC_OUTPUT.
 
                               GPIO HW configuration can be modified afterwards using unitary function @ref LL_GPIO_SetPinOutputType().*/
 
-	uint32_t Pull;         /*!< Specifies the operating Pull-up/Pull down for the selected pins.
+  uint32_t Pull;         /*!< Specifies the operating Pull-up/Pull down for the selected pins.
                               This parameter can be a value of @ref GPIO_LL_EC_PULL.
 
                               GPIO HW configuration can be modified afterwards using unitary function @ref LL_GPIO_SetPinPull().*/
@@ -341,8 +341,8 @@ typedef struct
   */
 __STATIC_INLINE void LL_GPIO_SetPinMode(GPIO_TypeDef *GPIOx, uint32_t Pin, uint32_t Mode)
 {
-	register uint32_t *pReg = (uint32_t *)((uint32_t)((uint32_t)(&GPIOx->CRL) + (Pin >> 24)));
-	MODIFY_REG(*pReg, ((GPIO_CRL_CNF0 | GPIO_CRL_MODE0) << (POSITION_VAL(Pin) * 4U)), (Mode << (POSITION_VAL(Pin) * 4U)));
+  register uint32_t *pReg = (uint32_t *)((uint32_t)((uint32_t)(&GPIOx->CRL) + (Pin >> 24)));
+  MODIFY_REG(*pReg, ((GPIO_CRL_CNF0 | GPIO_CRL_MODE0) << (POSITION_VAL(Pin) * 4U)), (Mode << (POSITION_VAL(Pin) * 4U)));
 }
 
 /**
@@ -381,8 +381,8 @@ __STATIC_INLINE void LL_GPIO_SetPinMode(GPIO_TypeDef *GPIOx, uint32_t Pin, uint3
   */
 __STATIC_INLINE uint32_t LL_GPIO_GetPinMode(GPIO_TypeDef *GPIOx, uint32_t Pin)
 {
-	register uint32_t *pReg = (uint32_t *)((uint32_t)((uint32_t)(&GPIOx->CRL) + (Pin >> 24)));
-	return (READ_BIT(*pReg, ((GPIO_CRL_CNF0 | GPIO_CRL_MODE0) << (POSITION_VAL(Pin) * 4U))) >> (POSITION_VAL(Pin) * 4U));
+  register uint32_t *pReg = (uint32_t *)((uint32_t)((uint32_t)(&GPIOx->CRL) + (Pin >> 24)));
+  return (READ_BIT(*pReg, ((GPIO_CRL_CNF0 | GPIO_CRL_MODE0) << (POSITION_VAL(Pin) * 4U))) >> (POSITION_VAL(Pin) * 4U));
 }
 
 /**
@@ -419,9 +419,9 @@ __STATIC_INLINE uint32_t LL_GPIO_GetPinMode(GPIO_TypeDef *GPIOx, uint32_t Pin)
   */
 __STATIC_INLINE void LL_GPIO_SetPinSpeed(GPIO_TypeDef *GPIOx, uint32_t Pin, uint32_t  Speed)
 {
-	register uint32_t *pReg = (uint32_t *)((uint32_t)((uint32_t)(&GPIOx->CRL) + (Pin >> 24)));
-	MODIFY_REG(*pReg, (GPIO_CRL_MODE0 << (POSITION_VAL(Pin) * 4U)),
-	           (Speed << (POSITION_VAL(Pin) * 4U)));
+  register uint32_t *pReg = (uint32_t *)((uint32_t)((uint32_t)(&GPIOx->CRL) + (Pin >> 24)));
+  MODIFY_REG(*pReg, (GPIO_CRL_MODE0 << (POSITION_VAL(Pin) * 4U)),
+             (Speed << (POSITION_VAL(Pin) * 4U)));
 }
 
 /**
@@ -457,8 +457,8 @@ __STATIC_INLINE void LL_GPIO_SetPinSpeed(GPIO_TypeDef *GPIOx, uint32_t Pin, uint
   */
 __STATIC_INLINE uint32_t LL_GPIO_GetPinSpeed(GPIO_TypeDef *GPIOx, uint32_t Pin)
 {
-	register uint32_t *pReg = (uint32_t *)((uint32_t)((uint32_t)(&GPIOx->CRL) + (Pin >> 24)));
-	return (READ_BIT(*pReg, (GPIO_CRL_MODE0 << (POSITION_VAL(Pin) * 4U))) >> (POSITION_VAL(Pin) * 4U));
+  register uint32_t *pReg = (uint32_t *)((uint32_t)((uint32_t)(&GPIOx->CRL) + (Pin >> 24)));
+  return (READ_BIT(*pReg, (GPIO_CRL_MODE0 << (POSITION_VAL(Pin) * 4U))) >> (POSITION_VAL(Pin) * 4U));
 }
 
 /**
@@ -493,9 +493,9 @@ __STATIC_INLINE uint32_t LL_GPIO_GetPinSpeed(GPIO_TypeDef *GPIOx, uint32_t Pin)
   */
 __STATIC_INLINE void LL_GPIO_SetPinOutputType(GPIO_TypeDef *GPIOx, uint32_t Pin, uint32_t OutputType)
 {
-	register uint32_t *pReg = (uint32_t *)((uint32_t)((uint32_t)(&GPIOx->CRL) + (Pin >> 24)));
-	MODIFY_REG(*pReg, (GPIO_CRL_CNF0_0 << (POSITION_VAL(Pin) * 4U)),
-	           (OutputType << (POSITION_VAL(Pin) * 4U)));
+  register uint32_t *pReg = (uint32_t *)((uint32_t)((uint32_t)(&GPIOx->CRL) + (Pin >> 24)));
+  MODIFY_REG(*pReg, (GPIO_CRL_CNF0_0 << (POSITION_VAL(Pin) * 4U)),
+             (OutputType << (POSITION_VAL(Pin) * 4U)));
 }
 
 /**
@@ -530,8 +530,8 @@ __STATIC_INLINE void LL_GPIO_SetPinOutputType(GPIO_TypeDef *GPIOx, uint32_t Pin,
   */
 __STATIC_INLINE uint32_t LL_GPIO_GetPinOutputType(GPIO_TypeDef *GPIOx, uint32_t Pin)
 {
-	register uint32_t *pReg = (uint32_t *)((uint32_t)((uint32_t)(&GPIOx->CRL) + (Pin >> 24)));
-	return (READ_BIT(*pReg, (GPIO_CRL_CNF0_0 << (POSITION_VAL(Pin) * 4U))) >> (POSITION_VAL(Pin) * 4U));
+  register uint32_t *pReg = (uint32_t *)((uint32_t)((uint32_t)(&GPIOx->CRL) + (Pin >> 24)));
+  return (READ_BIT(*pReg, (GPIO_CRL_CNF0_0 << (POSITION_VAL(Pin) * 4U))) >> (POSITION_VAL(Pin) * 4U));
 
 }
 
@@ -564,7 +564,7 @@ __STATIC_INLINE uint32_t LL_GPIO_GetPinOutputType(GPIO_TypeDef *GPIOx, uint32_t 
   */
 __STATIC_INLINE void LL_GPIO_SetPinPull(GPIO_TypeDef *GPIOx, uint32_t Pin, uint32_t Pull)
 {
-	MODIFY_REG(GPIOx->ODR, (Pin >> GPIO_PIN_MASK_POS), Pull << (POSITION_VAL(Pin >> GPIO_PIN_MASK_POS)));
+  MODIFY_REG(GPIOx->ODR, (Pin >> GPIO_PIN_MASK_POS), Pull << (POSITION_VAL(Pin >> GPIO_PIN_MASK_POS)));
 }
 
 /**
@@ -595,7 +595,7 @@ __STATIC_INLINE void LL_GPIO_SetPinPull(GPIO_TypeDef *GPIOx, uint32_t Pin, uint3
   */
 __STATIC_INLINE uint32_t LL_GPIO_GetPinPull(GPIO_TypeDef *GPIOx, uint32_t Pin)
 {
-	return (READ_BIT(GPIOx->ODR, (GPIO_ODR_ODR0 << (POSITION_VAL(Pin >> GPIO_PIN_MASK_POS)))) >> (POSITION_VAL(Pin >> GPIO_PIN_MASK_POS)));
+  return (READ_BIT(GPIOx->ODR, (GPIO_ODR_ODR0 << (POSITION_VAL(Pin >> GPIO_PIN_MASK_POS)))) >> (POSITION_VAL(Pin >> GPIO_PIN_MASK_POS)));
 }
 
 /**
@@ -629,12 +629,12 @@ __STATIC_INLINE uint32_t LL_GPIO_GetPinPull(GPIO_TypeDef *GPIOx, uint32_t Pin)
   */
 __STATIC_INLINE void LL_GPIO_LockPin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
 {
-	__IO uint32_t temp;
-	WRITE_REG(GPIOx->LCKR, GPIO_LCKR_LCKK | ((PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU));
-	WRITE_REG(GPIOx->LCKR, ((PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU));
-	WRITE_REG(GPIOx->LCKR, GPIO_LCKR_LCKK | ((PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU));
-	temp = READ_REG(GPIOx->LCKR);
-	(void) temp;
+  __IO uint32_t temp;
+  WRITE_REG(GPIOx->LCKR, GPIO_LCKR_LCKK | ((PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU));
+  WRITE_REG(GPIOx->LCKR, ((PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU));
+  WRITE_REG(GPIOx->LCKR, GPIO_LCKR_LCKK | ((PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU));
+  temp = READ_REG(GPIOx->LCKR);
+  (void) temp;
 }
 
 /**
@@ -663,7 +663,7 @@ __STATIC_INLINE void LL_GPIO_LockPin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
   */
 __STATIC_INLINE uint32_t LL_GPIO_IsPinLocked(GPIO_TypeDef *GPIOx, uint32_t PinMask)
 {
-	return (READ_BIT(GPIOx->LCKR, ((PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU)) == ((PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU));
+  return (READ_BIT(GPIOx->LCKR, ((PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU)) == ((PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU));
 }
 
 /**
@@ -674,7 +674,7 @@ __STATIC_INLINE uint32_t LL_GPIO_IsPinLocked(GPIO_TypeDef *GPIOx, uint32_t PinMa
   */
 __STATIC_INLINE uint32_t LL_GPIO_IsAnyPinLocked(GPIO_TypeDef *GPIOx)
 {
-	return (READ_BIT(GPIOx->LCKR, GPIO_LCKR_LCKK) == (GPIO_LCKR_LCKK));
+  return (READ_BIT(GPIOx->LCKR, GPIO_LCKR_LCKK) == (GPIO_LCKR_LCKK));
 }
 
 /**
@@ -693,7 +693,7 @@ __STATIC_INLINE uint32_t LL_GPIO_IsAnyPinLocked(GPIO_TypeDef *GPIOx)
   */
 __STATIC_INLINE uint32_t LL_GPIO_ReadInputPort(GPIO_TypeDef *GPIOx)
 {
-	return (READ_REG(GPIOx->IDR));
+  return (READ_REG(GPIOx->IDR));
 }
 
 /**
@@ -722,7 +722,7 @@ __STATIC_INLINE uint32_t LL_GPIO_ReadInputPort(GPIO_TypeDef *GPIOx)
   */
 __STATIC_INLINE uint32_t LL_GPIO_IsInputPinSet(GPIO_TypeDef *GPIOx, uint32_t PinMask)
 {
-	return (READ_BIT(GPIOx->IDR, (PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU) == ((PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU));
+  return (READ_BIT(GPIOx->IDR, (PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU) == ((PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU));
 }
 
 /**
@@ -734,7 +734,7 @@ __STATIC_INLINE uint32_t LL_GPIO_IsInputPinSet(GPIO_TypeDef *GPIOx, uint32_t Pin
   */
 __STATIC_INLINE void LL_GPIO_WriteOutputPort(GPIO_TypeDef *GPIOx, uint32_t PortValue)
 {
-	WRITE_REG(GPIOx->ODR, PortValue);
+  WRITE_REG(GPIOx->ODR, PortValue);
 }
 
 /**
@@ -745,7 +745,7 @@ __STATIC_INLINE void LL_GPIO_WriteOutputPort(GPIO_TypeDef *GPIOx, uint32_t PortV
   */
 __STATIC_INLINE uint32_t LL_GPIO_ReadOutputPort(GPIO_TypeDef *GPIOx)
 {
-	return (uint32_t)(READ_REG(GPIOx->ODR));
+  return (uint32_t)(READ_REG(GPIOx->ODR));
 }
 
 /**
@@ -774,7 +774,7 @@ __STATIC_INLINE uint32_t LL_GPIO_ReadOutputPort(GPIO_TypeDef *GPIOx)
   */
 __STATIC_INLINE uint32_t LL_GPIO_IsOutputPinSet(GPIO_TypeDef *GPIOx, uint32_t PinMask)
 {
-	return (READ_BIT(GPIOx->ODR, (PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU) == ((PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU));
+  return (READ_BIT(GPIOx->ODR, (PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU) == ((PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU));
 }
 
 /**
@@ -803,7 +803,7 @@ __STATIC_INLINE uint32_t LL_GPIO_IsOutputPinSet(GPIO_TypeDef *GPIOx, uint32_t Pi
   */
 __STATIC_INLINE void LL_GPIO_SetOutputPin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
 {
-	WRITE_REG(GPIOx->BSRR, (PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU);
+  WRITE_REG(GPIOx->BSRR, (PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU);
 }
 
 /**
@@ -832,7 +832,7 @@ __STATIC_INLINE void LL_GPIO_SetOutputPin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
   */
 __STATIC_INLINE void LL_GPIO_ResetOutputPin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
 {
-	WRITE_REG(GPIOx->BRR, (PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU);
+  WRITE_REG(GPIOx->BRR, (PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU);
 }
 
 /**
@@ -861,9 +861,9 @@ __STATIC_INLINE void LL_GPIO_ResetOutputPin(GPIO_TypeDef *GPIOx, uint32_t PinMas
   */
 __STATIC_INLINE void LL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
 {
-	uint32_t odr = READ_REG(GPIOx->ODR);
-	uint32_t pinmask = ((PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU);
-	WRITE_REG(GPIOx->BSRR, ((odr & pinmask) << 16u) | (~odr & pinmask));
+  uint32_t odr = READ_REG(GPIOx->ODR);
+  uint32_t pinmask = ((PinMask >> GPIO_PIN_MASK_POS) & 0x0000FFFFU);
+  WRITE_REG(GPIOx->BSRR, ((odr & pinmask) << 16u) | (~odr & pinmask));
 }
 
 /**
@@ -883,7 +883,7 @@ __STATIC_INLINE void LL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint32_t PinMask)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_SPI1(void)
 {
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_SPI1_REMAP | AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_SPI1_REMAP | AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -894,7 +894,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_SPI1(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_SPI1(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_SPI1_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_SPI1_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -904,7 +904,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_SPI1(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_SPI1(void)
 {
-	return (READ_BIT(AFIO->MAPR, AFIO_MAPR_SPI1_REMAP) == (AFIO_MAPR_SPI1_REMAP));
+  return (READ_BIT(AFIO->MAPR, AFIO_MAPR_SPI1_REMAP) == (AFIO_MAPR_SPI1_REMAP));
 }
 
 /**
@@ -915,7 +915,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_SPI1(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_I2C1(void)
 {
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_I2C1_REMAP | AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_I2C1_REMAP | AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -926,7 +926,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_I2C1(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_I2C1(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_I2C1_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_I2C1_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -936,7 +936,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_I2C1(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_I2C1(void)
 {
-	return (READ_BIT(AFIO->MAPR, AFIO_MAPR_I2C1_REMAP) == (AFIO_MAPR_I2C1_REMAP));
+  return (READ_BIT(AFIO->MAPR, AFIO_MAPR_I2C1_REMAP) == (AFIO_MAPR_I2C1_REMAP));
 }
 
 /**
@@ -947,7 +947,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_I2C1(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_USART1(void)
 {
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_USART1_REMAP | AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_USART1_REMAP | AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -958,7 +958,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_USART1(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_USART1(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_USART1_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_USART1_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -968,7 +968,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_USART1(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_USART1(void)
 {
-	return (READ_BIT(AFIO->MAPR, AFIO_MAPR_USART1_REMAP) == (AFIO_MAPR_USART1_REMAP));
+  return (READ_BIT(AFIO->MAPR, AFIO_MAPR_USART1_REMAP) == (AFIO_MAPR_USART1_REMAP));
 }
 
 /**
@@ -979,7 +979,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_USART1(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_USART2(void)
 {
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_USART2_REMAP | AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_USART2_REMAP | AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -990,7 +990,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_USART2(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_USART2(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_USART2_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_USART2_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1000,7 +1000,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_USART2(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_USART2(void)
 {
-	return (READ_BIT(AFIO->MAPR, AFIO_MAPR_USART2_REMAP) == (AFIO_MAPR_USART2_REMAP));
+  return (READ_BIT(AFIO->MAPR, AFIO_MAPR_USART2_REMAP) == (AFIO_MAPR_USART2_REMAP));
 }
 
 #if defined (AFIO_MAPR_USART3_REMAP)
@@ -1012,7 +1012,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_USART2(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_USART3(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_USART3_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_USART3_REMAP_FULLREMAP | AFIO_MAPR_SWJ_CFG));
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_USART3_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_USART3_REMAP_FULLREMAP | AFIO_MAPR_SWJ_CFG));
 }
 
 /**
@@ -1023,7 +1023,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_USART3(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_RemapPartial_USART3(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_USART3_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_USART3_REMAP_PARTIALREMAP | AFIO_MAPR_SWJ_CFG));
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_USART3_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_USART3_REMAP_PARTIALREMAP | AFIO_MAPR_SWJ_CFG));
 }
 
 /**
@@ -1034,7 +1034,7 @@ __STATIC_INLINE void LL_GPIO_AF_RemapPartial_USART3(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_USART3(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_USART3_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_USART3_REMAP_NOREMAP | AFIO_MAPR_SWJ_CFG));
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_USART3_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_USART3_REMAP_NOREMAP | AFIO_MAPR_SWJ_CFG));
 }
 #endif
 
@@ -1046,7 +1046,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_USART3(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM1(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM1_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM1_REMAP_FULLREMAP | AFIO_MAPR_SWJ_CFG));
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM1_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM1_REMAP_FULLREMAP | AFIO_MAPR_SWJ_CFG));
 }
 
 /**
@@ -1057,7 +1057,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM1(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_RemapPartial_TIM1(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM1_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM1_REMAP_PARTIALREMAP | AFIO_MAPR_SWJ_CFG));
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM1_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM1_REMAP_PARTIALREMAP | AFIO_MAPR_SWJ_CFG));
 }
 
 /**
@@ -1068,7 +1068,7 @@ __STATIC_INLINE void LL_GPIO_AF_RemapPartial_TIM1(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM1(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM1_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM1_REMAP_NOREMAP | AFIO_MAPR_SWJ_CFG));
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM1_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM1_REMAP_NOREMAP | AFIO_MAPR_SWJ_CFG));
 }
 
 /**
@@ -1079,7 +1079,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM1(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM2(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM2_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM2_REMAP_FULLREMAP | AFIO_MAPR_SWJ_CFG));
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM2_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM2_REMAP_FULLREMAP | AFIO_MAPR_SWJ_CFG));
 }
 
 /**
@@ -1090,7 +1090,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM2(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_RemapPartial2_TIM2(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM2_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM2_REMAP_PARTIALREMAP2 | AFIO_MAPR_SWJ_CFG));
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM2_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM2_REMAP_PARTIALREMAP2 | AFIO_MAPR_SWJ_CFG));
 }
 
 /**
@@ -1101,7 +1101,7 @@ __STATIC_INLINE void LL_GPIO_AF_RemapPartial2_TIM2(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_RemapPartial1_TIM2(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM2_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM2_REMAP_PARTIALREMAP1 | AFIO_MAPR_SWJ_CFG));
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM2_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM2_REMAP_PARTIALREMAP1 | AFIO_MAPR_SWJ_CFG));
 }
 
 /**
@@ -1112,7 +1112,7 @@ __STATIC_INLINE void LL_GPIO_AF_RemapPartial1_TIM2(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM2(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM2_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM2_REMAP_NOREMAP | AFIO_MAPR_SWJ_CFG));
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM2_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM2_REMAP_NOREMAP | AFIO_MAPR_SWJ_CFG));
 }
 
 /**
@@ -1124,7 +1124,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM2(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM3(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM3_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM3_REMAP_FULLREMAP | AFIO_MAPR_SWJ_CFG));
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM3_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM3_REMAP_FULLREMAP | AFIO_MAPR_SWJ_CFG));
 }
 
 /**
@@ -1136,7 +1136,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM3(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_RemapPartial_TIM3(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM3_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM3_REMAP_PARTIALREMAP | AFIO_MAPR_SWJ_CFG));
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM3_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM3_REMAP_PARTIALREMAP | AFIO_MAPR_SWJ_CFG));
 }
 
 /**
@@ -1148,7 +1148,7 @@ __STATIC_INLINE void LL_GPIO_AF_RemapPartial_TIM3(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM3(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM3_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM3_REMAP_NOREMAP | AFIO_MAPR_SWJ_CFG));
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM3_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_TIM3_REMAP_NOREMAP | AFIO_MAPR_SWJ_CFG));
 }
 
 #if defined(AFIO_MAPR_TIM4_REMAP)
@@ -1161,7 +1161,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM3(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM4(void)
 {
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_TIM4_REMAP | AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_TIM4_REMAP | AFIO_MAPR_SWJ_CFG);
 }
 /**
   * @brief Disable the remapping of TIM4 alternate function channels 1 to 4.
@@ -1172,7 +1172,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM4(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM4(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM4_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM4_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1182,7 +1182,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM4(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM4(void)
 {
-	return (READ_BIT(AFIO->MAPR, AFIO_MAPR_TIM4_REMAP) == (AFIO_MAPR_TIM4_REMAP));
+  return (READ_BIT(AFIO->MAPR, AFIO_MAPR_TIM4_REMAP) == (AFIO_MAPR_TIM4_REMAP));
 }
 #endif
 
@@ -1196,7 +1196,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM4(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_RemapPartial1_CAN1(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_CAN_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_CAN_REMAP_REMAP1 | AFIO_MAPR_SWJ_CFG));
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_CAN_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_CAN_REMAP_REMAP1 | AFIO_MAPR_SWJ_CFG));
 }
 
 /**
@@ -1207,7 +1207,7 @@ __STATIC_INLINE void LL_GPIO_AF_RemapPartial1_CAN1(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_RemapPartial2_CAN1(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_CAN_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_CAN_REMAP_REMAP2 | AFIO_MAPR_SWJ_CFG));
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_CAN_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_CAN_REMAP_REMAP2 | AFIO_MAPR_SWJ_CFG));
 }
 
 /**
@@ -1218,7 +1218,7 @@ __STATIC_INLINE void LL_GPIO_AF_RemapPartial2_CAN1(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_RemapPartial3_CAN1(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_CAN_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_CAN_REMAP_REMAP3 | AFIO_MAPR_SWJ_CFG));
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_CAN_REMAP | AFIO_MAPR_SWJ_CFG), (AFIO_MAPR_CAN_REMAP_REMAP3 | AFIO_MAPR_SWJ_CFG));
 }
 #endif
 
@@ -1233,7 +1233,7 @@ __STATIC_INLINE void LL_GPIO_AF_RemapPartial3_CAN1(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_PD01(void)
 {
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_PD01_REMAP | AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_PD01_REMAP | AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1247,7 +1247,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_PD01(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_PD01(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_PD01_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_PD01_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1257,7 +1257,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_PD01(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_PD01(void)
 {
-	return (READ_BIT(AFIO->MAPR, AFIO_MAPR_PD01_REMAP) == (AFIO_MAPR_PD01_REMAP));
+  return (READ_BIT(AFIO->MAPR, AFIO_MAPR_PD01_REMAP) == (AFIO_MAPR_PD01_REMAP));
 }
 
 #if defined(AFIO_MAPR_TIM5CH4_IREMAP)
@@ -1270,7 +1270,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_PD01(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM5CH4(void)
 {
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_TIM5CH4_IREMAP | AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_TIM5CH4_IREMAP | AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1282,7 +1282,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM5CH4(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM5CH4(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM5CH4_IREMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM5CH4_IREMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1292,7 +1292,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM5CH4(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM5CH4(void)
 {
-	return (READ_BIT(AFIO->MAPR, AFIO_MAPR_TIM5CH4_IREMAP) == (AFIO_MAPR_TIM5CH4_IREMAP));
+  return (READ_BIT(AFIO->MAPR, AFIO_MAPR_TIM5CH4_IREMAP) == (AFIO_MAPR_TIM5CH4_IREMAP));
 }
 #endif
 
@@ -1306,7 +1306,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM5CH4(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_ETH(void)
 {
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_ETH_REMAP | AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_ETH_REMAP | AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1318,7 +1318,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_ETH(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_ETH(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_ETH_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_ETH_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1328,7 +1328,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_ETH(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_ETH(void)
 {
-	return (READ_BIT(AFIO->MAPR, AFIO_MAPR_ETH_REMAP) == (AFIO_MAPR_ETH_REMAP));
+  return (READ_BIT(AFIO->MAPR, AFIO_MAPR_ETH_REMAP) == (AFIO_MAPR_ETH_REMAP));
 }
 #endif
 
@@ -1343,7 +1343,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_ETH(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_CAN2(void)
 {
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_CAN2_REMAP | AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_CAN2_REMAP | AFIO_MAPR_SWJ_CFG);
 }
 /**
   * @brief Disable the remapping of CAN2 alternate function CAN2_RX and CAN2_TX.
@@ -1354,7 +1354,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_CAN2(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_CAN2(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_CAN2_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_CAN2_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1364,7 +1364,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_CAN2(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_CAN2(void)
 {
-	return (READ_BIT(AFIO->MAPR, AFIO_MAPR_CAN2_REMAP) == (AFIO_MAPR_CAN2_REMAP));
+  return (READ_BIT(AFIO->MAPR, AFIO_MAPR_CAN2_REMAP) == (AFIO_MAPR_CAN2_REMAP));
 }
 #endif
 
@@ -1378,7 +1378,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_CAN2(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_Select_ETH_RMII(void)
 {
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_MII_RMII_SEL | AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_MII_RMII_SEL | AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1390,7 +1390,7 @@ __STATIC_INLINE void LL_GPIO_AF_Select_ETH_RMII(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_Select_ETH_MII(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_MII_RMII_SEL | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_MII_RMII_SEL | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
 }
 #endif
 
@@ -1403,7 +1403,7 @@ __STATIC_INLINE void LL_GPIO_AF_Select_ETH_MII(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_ADC1_ETRGINJ(void)
 {
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_ADC1_ETRGINJ_REMAP | AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_ADC1_ETRGINJ_REMAP | AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1414,7 +1414,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_ADC1_ETRGINJ(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_ADC1_ETRGINJ(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_ADC1_ETRGINJ_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_ADC1_ETRGINJ_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1424,7 +1424,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_ADC1_ETRGINJ(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_ADC1_ETRGINJ(void)
 {
-	return (READ_BIT(AFIO->MAPR, AFIO_MAPR_ADC1_ETRGINJ_REMAP) == (AFIO_MAPR_ADC1_ETRGINJ_REMAP));
+  return (READ_BIT(AFIO->MAPR, AFIO_MAPR_ADC1_ETRGINJ_REMAP) == (AFIO_MAPR_ADC1_ETRGINJ_REMAP));
 }
 #endif
 
@@ -1437,7 +1437,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_ADC1_ETRGINJ(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_ADC1_ETRGREG(void)
 {
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_ADC1_ETRGREG_REMAP | AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_ADC1_ETRGREG_REMAP | AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1448,7 +1448,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_ADC1_ETRGREG(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_ADC1_ETRGREG(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_ADC1_ETRGREG_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
+   MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_ADC1_ETRGREG_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1458,7 +1458,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_ADC1_ETRGREG(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_ADC1_ETRGREG(void)
 {
-	return (READ_BIT(AFIO->MAPR, AFIO_MAPR_ADC1_ETRGREG_REMAP) == (AFIO_MAPR_ADC1_ETRGREG_REMAP));
+  return (READ_BIT(AFIO->MAPR, AFIO_MAPR_ADC1_ETRGREG_REMAP) == (AFIO_MAPR_ADC1_ETRGREG_REMAP));
 }
 #endif
 
@@ -1472,7 +1472,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_ADC1_ETRGREG(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_ADC2_ETRGINJ(void)
 {
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_ADC2_ETRGINJ_REMAP | AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_ADC2_ETRGINJ_REMAP | AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1483,7 +1483,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_ADC2_ETRGINJ(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_ADC2_ETRGINJ(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_ADC2_ETRGINJ_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_ADC2_ETRGINJ_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1493,7 +1493,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_ADC2_ETRGINJ(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_ADC2_ETRGINJ(void)
 {
-	return (READ_BIT(AFIO->MAPR, AFIO_MAPR_ADC2_ETRGINJ_REMAP) == (AFIO_MAPR_ADC2_ETRGINJ_REMAP));
+  return (READ_BIT(AFIO->MAPR, AFIO_MAPR_ADC2_ETRGINJ_REMAP) == (AFIO_MAPR_ADC2_ETRGINJ_REMAP));
 }
 #endif
 
@@ -1507,7 +1507,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_ADC2_ETRGINJ(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_ADC2_ETRGREG(void)
 {
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_ADC2_ETRGREG_REMAP | AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_ADC2_ETRGREG_REMAP | AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1518,7 +1518,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_ADC2_ETRGREG(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_ADC2_ETRGREG(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_ADC2_ETRGREG_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_ADC2_ETRGREG_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1528,7 +1528,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_ADC2_ETRGREG(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_ADC2_ETRGREG(void)
 {
-	return (READ_BIT(AFIO->MAPR, AFIO_MAPR_ADC2_ETRGREG_REMAP) == (AFIO_MAPR_ADC2_ETRGREG_REMAP));
+  return (READ_BIT(AFIO->MAPR, AFIO_MAPR_ADC2_ETRGREG_REMAP) == (AFIO_MAPR_ADC2_ETRGREG_REMAP));
 }
 #endif
 
@@ -1540,8 +1540,8 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_ADC2_ETRGREG(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_SWJ(void)
 {
-	CLEAR_BIT(AFIO->MAPR,AFIO_MAPR_SWJ_CFG);
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_SWJ_CFG_RESET);
+  CLEAR_BIT(AFIO->MAPR,AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_SWJ_CFG_RESET);
 }
 
 /**
@@ -1552,8 +1552,8 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_SWJ(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_Remap_SWJ_NONJTRST(void)
 {
-	CLEAR_BIT(AFIO->MAPR,AFIO_MAPR_SWJ_CFG);
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_SWJ_CFG_NOJNTRST);
+  CLEAR_BIT(AFIO->MAPR,AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_SWJ_CFG_NOJNTRST);
 }
 
 /**
@@ -1564,8 +1564,8 @@ __STATIC_INLINE void LL_GPIO_AF_Remap_SWJ_NONJTRST(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_Remap_SWJ_NOJTAG(void)
 {
-	CLEAR_BIT(AFIO->MAPR,AFIO_MAPR_SWJ_CFG);
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_SWJ_CFG_JTAGDISABLE);
+  CLEAR_BIT(AFIO->MAPR,AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_SWJ_CFG_JTAGDISABLE);
 }
 
 /**
@@ -1576,8 +1576,8 @@ __STATIC_INLINE void LL_GPIO_AF_Remap_SWJ_NOJTAG(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_SWJ(void)
 {
-	CLEAR_BIT(AFIO->MAPR,AFIO_MAPR_SWJ_CFG);
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_SWJ_CFG_DISABLE);
+  CLEAR_BIT(AFIO->MAPR,AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_SWJ_CFG_DISABLE);
 }
 
 #if defined(AFIO_MAPR_SPI3_REMAP)
@@ -1591,7 +1591,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_SWJ(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_SPI3(void)
 {
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_SPI3_REMAP | AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_SPI3_REMAP | AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1603,7 +1603,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_SPI3(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_SPI3(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_SPI3_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_SPI3_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1613,7 +1613,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_SPI3(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_SPI3(void)
 {
-	return (READ_BIT(AFIO->MAPR, AFIO_MAPR_SPI3_REMAP) == (AFIO_MAPR_SPI3_REMAP));
+  return (READ_BIT(AFIO->MAPR, AFIO_MAPR_SPI3_REMAP) == (AFIO_MAPR_SPI3_REMAP));
 }
 #endif
 
@@ -1628,7 +1628,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_SPI3(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_Remap_TIM2ITR1_TO_USB(void)
 {
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_TIM2ITR1_IREMAP | AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_TIM2ITR1_IREMAP | AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1640,7 +1640,7 @@ __STATIC_INLINE void LL_GPIO_AF_Remap_TIM2ITR1_TO_USB(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_Remap_TIM2ITR1_TO_ETH(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM2ITR1_IREMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_TIM2ITR1_IREMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
 }
 #endif
 
@@ -1655,7 +1655,7 @@ __STATIC_INLINE void LL_GPIO_AF_Remap_TIM2ITR1_TO_ETH(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_ETH_PTP_PPS(void)
 {
-	SET_BIT(AFIO->MAPR, AFIO_MAPR_PTP_PPS_REMAP | AFIO_MAPR_SWJ_CFG);
+  SET_BIT(AFIO->MAPR, AFIO_MAPR_PTP_PPS_REMAP | AFIO_MAPR_SWJ_CFG);
 }
 
 /**
@@ -1667,7 +1667,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_ETH_PTP_PPS(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_ETH_PTP_PPS(void)
 {
-	MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_PTP_PPS_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
+  MODIFY_REG(AFIO->MAPR, (AFIO_MAPR_PTP_PPS_REMAP | AFIO_MAPR_SWJ_CFG), AFIO_MAPR_SWJ_CFG);
 }
 #endif
 
@@ -1681,7 +1681,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_ETH_PTP_PPS(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM9(void)
 {
-	SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM9_REMAP);
+  SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM9_REMAP);
 }
 
 /**
@@ -1692,7 +1692,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM9(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM9(void)
 {
-	CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM9_REMAP);
+  CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM9_REMAP);
 }
 
 /**
@@ -1702,7 +1702,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM9(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM9(void)
 {
-	return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM9_REMAP) == (AFIO_MAPR2_TIM9_REMAP));
+  return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM9_REMAP) == (AFIO_MAPR2_TIM9_REMAP));
 }
 #endif
 
@@ -1716,7 +1716,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM9(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM10(void)
 {
-	SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM10_REMAP);
+  SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM10_REMAP);
 }
 
 /**
@@ -1727,7 +1727,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM10(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM10(void)
 {
-	CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM10_REMAP);
+  CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM10_REMAP);
 }
 
 /**
@@ -1737,7 +1737,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM10(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM10(void)
 {
-	return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM10_REMAP) == (AFIO_MAPR2_TIM10_REMAP));
+  return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM10_REMAP) == (AFIO_MAPR2_TIM10_REMAP));
 }
 #endif
 
@@ -1750,7 +1750,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM10(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM11(void)
 {
-	SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM11_REMAP);
+  SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM11_REMAP);
 }
 
 /**
@@ -1761,7 +1761,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM11(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM11(void)
 {
-	CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM11_REMAP);
+  CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM11_REMAP);
 }
 
 /**
@@ -1771,7 +1771,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM11(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM11(void)
 {
-	return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM11_REMAP) == (AFIO_MAPR2_TIM11_REMAP));
+  return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM11_REMAP) == (AFIO_MAPR2_TIM11_REMAP));
 }
 #endif
 
@@ -1785,7 +1785,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM11(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM13(void)
 {
-	SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM13_REMAP);
+  SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM13_REMAP);
 }
 
 /**
@@ -1796,7 +1796,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM13(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM13(void)
 {
-	CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM13_REMAP);
+  CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM13_REMAP);
 }
 
 /**
@@ -1806,7 +1806,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM13(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM13(void)
 {
-	return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM13_REMAP) == (AFIO_MAPR2_TIM13_REMAP));
+  return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM13_REMAP) == (AFIO_MAPR2_TIM13_REMAP));
 }
 #endif
 
@@ -1820,7 +1820,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM13(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM14(void)
 {
-	SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM14_REMAP);
+  SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM14_REMAP);
 }
 
 /**
@@ -1831,7 +1831,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM14(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM14(void)
 {
-	CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM14_REMAP);
+  CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM14_REMAP);
 }
 
 /**
@@ -1841,7 +1841,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM14(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM14(void)
 {
-	return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM14_REMAP) == (AFIO_MAPR2_TIM14_REMAP));
+  return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM14_REMAP) == (AFIO_MAPR2_TIM14_REMAP));
 }
 #endif
 
@@ -1855,7 +1855,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM14(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_Disconnect_FSMCNADV(void)
 {
-	SET_BIT(AFIO->MAPR2, AFIO_MAPR2_FSMC_NADV_REMAP);
+  SET_BIT(AFIO->MAPR2, AFIO_MAPR2_FSMC_NADV_REMAP);
 }
 
 /**
@@ -1866,7 +1866,7 @@ __STATIC_INLINE void LL_GPIO_AF_Disconnect_FSMCNADV(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_Connect_FSMCNADV(void)
 {
-	CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_FSMC_NADV_REMAP);
+  CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_FSMC_NADV_REMAP);
 }
 #endif
 
@@ -1880,7 +1880,7 @@ __STATIC_INLINE void LL_GPIO_AF_Connect_FSMCNADV(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM15(void)
 {
-	SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM15_REMAP);
+  SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM15_REMAP);
 }
 /**
   * @brief Disable the remapping of TIM15_CH1 and TIM15_CH2.
@@ -1890,7 +1890,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM15(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM15(void)
 {
-	CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM15_REMAP);
+  CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM15_REMAP);
 }
 
 /**
@@ -1900,7 +1900,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM15(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM15(void)
 {
-	return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM15_REMAP) == (AFIO_MAPR2_TIM15_REMAP));
+  return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM15_REMAP) == (AFIO_MAPR2_TIM15_REMAP));
 }
 #endif
 
@@ -1914,7 +1914,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM15(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM16(void)
 {
-	SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM16_REMAP);
+  SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM16_REMAP);
 }
 
 /**
@@ -1925,7 +1925,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM16(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM16(void)
 {
-	CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM16_REMAP);
+  CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM16_REMAP);
 }
 
 /**
@@ -1935,7 +1935,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM16(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM16(void)
 {
-	return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM16_REMAP) == (AFIO_MAPR2_TIM16_REMAP));
+  return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM16_REMAP) == (AFIO_MAPR2_TIM16_REMAP));
 }
 #endif
 
@@ -1949,7 +1949,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM16(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM17(void)
 {
-	SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM17_REMAP);
+  SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM17_REMAP);
 }
 
 /**
@@ -1960,7 +1960,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM17(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM17(void)
 {
-	CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM17_REMAP);
+  CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM17_REMAP);
 }
 
 /**
@@ -1970,7 +1970,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM17(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM17(void)
 {
-	return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM17_REMAP) == (AFIO_MAPR2_TIM17_REMAP));
+  return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM17_REMAP) == (AFIO_MAPR2_TIM17_REMAP));
 }
 #endif
 
@@ -1984,7 +1984,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM17(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_CEC(void)
 {
-	SET_BIT(AFIO->MAPR2, AFIO_MAPR2_CEC_REMAP);
+  SET_BIT(AFIO->MAPR2, AFIO_MAPR2_CEC_REMAP);
 }
 
 /**
@@ -1995,7 +1995,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_CEC(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_CEC(void)
 {
-	CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_CEC_REMAP);
+  CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_CEC_REMAP);
 }
 
 /**
@@ -2005,7 +2005,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_CEC(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_CEC(void)
 {
-	return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_CEC_REMAP) == (AFIO_MAPR2_CEC_REMAP));
+  return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_CEC_REMAP) == (AFIO_MAPR2_CEC_REMAP));
 }
 #endif
 
@@ -2019,7 +2019,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_CEC(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM1DMA(void)
 {
-	SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM1_DMA_REMAP);
+  SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM1_DMA_REMAP);
 }
 
 /**
@@ -2030,7 +2030,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM1DMA(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM1DMA(void)
 {
-	CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM1_DMA_REMAP);
+  CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM1_DMA_REMAP);
 }
 
 /**
@@ -2040,7 +2040,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM1DMA(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM1DMA(void)
 {
-	return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM1_DMA_REMAP) == (AFIO_MAPR2_TIM1_DMA_REMAP));
+  return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM1_DMA_REMAP) == (AFIO_MAPR2_TIM1_DMA_REMAP));
 }
 #endif
 
@@ -2054,7 +2054,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM1DMA(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM67DACDMA(void)
 {
-	SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM67_DAC_DMA_REMAP);
+  SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM67_DAC_DMA_REMAP);
 }
 
 /**
@@ -2065,7 +2065,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM67DACDMA(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM67DACDMA(void)
 {
-	CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM67_DAC_DMA_REMAP);
+  CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM67_DAC_DMA_REMAP);
 }
 
 /**
@@ -2075,7 +2075,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM67DACDMA(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM67DACDMA(void)
 {
-	return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM67_DAC_DMA_REMAP) == (AFIO_MAPR2_TIM67_DAC_DMA_REMAP));
+  return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM67_DAC_DMA_REMAP) == (AFIO_MAPR2_TIM67_DAC_DMA_REMAP));
 }
 #endif
 
@@ -2090,7 +2090,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM67DACDMA(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM12(void)
 {
-	SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM12_REMAP);
+  SET_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM12_REMAP);
 }
 
 /**
@@ -2102,7 +2102,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_TIM12(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM12(void)
 {
-	CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM12_REMAP);
+  CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM12_REMAP);
 }
 
 /**
@@ -2112,7 +2112,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_TIM12(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM12(void)
 {
-	return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM12_REMAP) == (AFIO_MAPR2_TIM12_REMAP));
+  return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_TIM12_REMAP) == (AFIO_MAPR2_TIM12_REMAP));
 }
 #endif
 
@@ -2131,7 +2131,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_TIM12(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableRemap_MISC(void)
 {
-	SET_BIT(AFIO->MAPR2, AFIO_MAPR2_MISC_REMAP);
+  SET_BIT(AFIO->MAPR2, AFIO_MAPR2_MISC_REMAP);
 }
 
 /**
@@ -2147,7 +2147,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableRemap_MISC(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableRemap_MISC(void)
 {
-	CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_MISC_REMAP);
+  CLEAR_BIT(AFIO->MAPR2, AFIO_MAPR2_MISC_REMAP);
 }
 
 /**
@@ -2157,7 +2157,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableRemap_MISC(void)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_MISC(void)
 {
-	return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_MISC_REMAP) == (AFIO_MAPR2_MISC_REMAP));
+  return (READ_BIT(AFIO->MAPR2, AFIO_MAPR2_MISC_REMAP) == (AFIO_MAPR2_MISC_REMAP));
 }
 #endif
 
@@ -2201,7 +2201,7 @@ __STATIC_INLINE uint32_t LL_GPIO_AF_IsEnabledRemap_MISC(void)
 */
 __STATIC_INLINE void LL_GPIO_AF_ConfigEventout(uint32_t LL_GPIO_PortSource, uint32_t LL_GPIO_PinSource)
 {
-	MODIFY_REG(AFIO->EVCR, (AFIO_EVCR_PORT) | (AFIO_EVCR_PIN), (LL_GPIO_PortSource) | (LL_GPIO_PinSource));
+  MODIFY_REG(AFIO->EVCR, (AFIO_EVCR_PORT) | (AFIO_EVCR_PIN), (LL_GPIO_PortSource) | (LL_GPIO_PinSource));
 }
 
 /**
@@ -2211,7 +2211,7 @@ __STATIC_INLINE void LL_GPIO_AF_ConfigEventout(uint32_t LL_GPIO_PortSource, uint
   */
 __STATIC_INLINE void LL_GPIO_AF_EnableEventout(void)
 {
-	SET_BIT(AFIO->EVCR, AFIO_EVCR_EVOE);
+  SET_BIT(AFIO->EVCR, AFIO_EVCR_EVOE);
 }
 
 /**
@@ -2221,7 +2221,7 @@ __STATIC_INLINE void LL_GPIO_AF_EnableEventout(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_DisableEventout(void)
 {
-	CLEAR_BIT(AFIO->EVCR, AFIO_EVCR_EVOE);
+  CLEAR_BIT(AFIO->EVCR, AFIO_EVCR_EVOE);
 }
 
 /**
@@ -2267,7 +2267,7 @@ __STATIC_INLINE void LL_GPIO_AF_DisableEventout(void)
   */
 __STATIC_INLINE void LL_GPIO_AF_SetEXTISource(uint32_t Port, uint32_t Line)
 {
-	MODIFY_REG(AFIO->EXTICR[Line & 0xFF], (Line >> 16), Port << POSITION_VAL((Line >> 16)));
+  MODIFY_REG(AFIO->EXTICR[Line & 0xFF], (Line >> 16), Port << POSITION_VAL((Line >> 16)));
 }
 
 /**
@@ -2304,7 +2304,7 @@ __STATIC_INLINE void LL_GPIO_AF_SetEXTISource(uint32_t Port, uint32_t Line)
   */
 __STATIC_INLINE uint32_t LL_GPIO_AF_GetEXTISource(uint32_t Line)
 {
-	return (uint32_t)(READ_BIT(AFIO->EXTICR[Line & 0xFF], (Line >> 16)) >> POSITION_VAL(Line >> 16));
+  return (uint32_t)(READ_BIT(AFIO->EXTICR[Line & 0xFF], (Line >> 16)) >> POSITION_VAL(Line >> 16));
 }
 
 /**

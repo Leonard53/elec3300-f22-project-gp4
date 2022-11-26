@@ -427,9 +427,23 @@ void LCD_DrawDot(uint16_t usCOLUMN, uint16_t usPAGE, uint16_t usColor)
 
 }
 
-void LCD_DrawCircle ( uint16_t usC, uint16_t usP, uint16_t R, uint16_t usColor)
+void LCD_DrawEllipse ( uint16_t usC, uint16_t usP, uint16_t SR, uint16_t LR, uint16_t usColor)
 {
+	float xda, ydb, result;
 
+	for (int16_t col = usC - SR; col <= usC + SR; col++) {
+		for (int16_t pag = usP - LR; pag <= usP + LR; pag++) {
+			if (col < 0 || col >= LCD_Default_Max_COLUMN || pag < 0 || pag >= LCD_Default_Max_PAGE) break;
+
+			xda = (col - usC) / (float)SR;
+			ydb = (pag - usP) / (float)LR;
+			result = xda * xda + ydb * ydb;
+
+			if (result <= 1) {
+				LCD_DrawDot(col, pag, usColor);
+			}
+		}
+	}
 }
 
 void LCD_DrawChar_Color ( uint16_t usC, uint16_t usP, const char cChar, uint16_t usColor_Background, uint16_t usColor_Foreground )
