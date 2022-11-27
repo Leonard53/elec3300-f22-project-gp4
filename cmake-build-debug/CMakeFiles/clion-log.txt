@@ -1,0 +1,5 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S /Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4 -B /Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug
+-- Minimal optimization, debug info included
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug

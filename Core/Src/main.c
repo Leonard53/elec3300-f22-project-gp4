@@ -42,13 +42,17 @@
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc2;
 
+I2C_HandleTypeDef hi2c1;
+
 UART_HandleTypeDef huart1;
 
 SRAM_HandleTypeDef hsram1;
 
 /* USER CODE BEGIN PV */
 uint8_t rxData;
-enum Page {home, weight, bluetooth};
+enum Page {
+    home, weight, accelerometer
+};
 enum Page currentPage = home;
 int changingPage = 1;
 /* USER CODE END PV */
@@ -59,6 +63,7 @@ static void MX_GPIO_Init(void);
 static void MX_FSMC_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_ADC2_Init(void);
+static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -66,85 +71,159 @@ static void MX_ADC2_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-	if(huart->Instance == USART1)
-	{
-		if(rxData==79) // Ascii value of 'O' is 79
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET); // output to LED
-		}
-		else if (rxData==88) // Ascii value of 'X' is 88
-		{
-			HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
-		}
-		HAL_UART_Receive_IT(&huart1, &rxData, 1); // Enabling interrupt receive again
-	}
+    if (huart->Instance == USART1) {
+        if (rxData == 79) // Ascii value of 'O' is 79
+        {
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET); // output to LED
+        } else if (rxData == 88) // Ascii value of 'X' is 88
+        {
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+        }
+        HAL_UART_Receive_IT(&huart1, &rxData, 1); // Enabling interrupt receive again
+    }
 }
 
 void Check_touchkey() {
-	strType_XPT2046_Coordinate strDisplayCoordinate;
-	if ( XPT2046_Get_TouchedPoint ( & strDisplayCoordinate, & strXPT2046_TouchPara ) ) {
-		if (currentPage == home) {
-			if (strDisplayCoordinate.y > 210 && strDisplayCoordinate.y < 250) {
-				if (strDisplayCoordinate.x > 20 && strDisplayCoordinate.x < 100) {
-					currentPage = weight;
-					changingPage = 1;
-				}
-				else if (strDisplayCoordinate.x > 130 && strDisplayCoordinate.x < 210) {
-					currentPage = bluetooth;
-					changingPage = 1;
-				}
-			}
-		}
-		else if (currentPage == weight || currentPage == bluetooth) {
-			if (strDisplayCoordinate.y > 267 && strDisplayCoordinate.y < 293) {
-				if(strDisplayCoordinate.x > 20 && strDisplayCoordinate.x < 150) {
-					currentPage = home;
-					changingPage = 1;
-				}
-			}
-		}
-	}
+    strType_XPT2046_Coordinate strDisplayCoordinate;
+    if (XPT2046_Get_TouchedPoint(&strDisplayCoordinate, &strXPT2046_TouchPara)) {
+        if (currentPage == home) {
+            if (strDisplayCoordinate.y > 210 && strDisplayCoordinate.y < 250) {
+                if (strDisplayCoordinate.x > 20 && strDisplayCoordinate.x < 100) {
+                    currentPage = weight;
+                    changingPage = 1;
+                } else if (strDisplayCoordinate.x > 130 && strDisplayCoordinate.x < 210) {
+                    currentPage = accelerometer;
+                    changingPage = 1;
+                }
+            }
+        } else if (currentPage == weight || currentPage == accelerometer) {
+            if (strDisplayCoordinate.y > 267 && strDisplayCoordinate.y < 293) {
+                if (strDisplayCoordinate.x > 20 && strDisplayCoordinate.x < 150) {
+                    currentPage = home;
+                    changingPage = 1;
+                }
+            }
+        }
+    }
 }
 
 uint16_t HueToRGB565(uint8_t hue) {
-	uint16_t portion = hue * 6;
+    uint16_t portion = hue * 6;
 
-	if (portion < 256) { // 0 <= degree < 60
-		return RED + ((int)(portion / 256.0 * 64) << 5);
-	} else if (portion < 256 * 2) { // 60 <= degree < 120
-		return (31 - (int)((portion - 256) / 256.0 * 32) << 11) + GREEN;
-	} else if (portion < 256 * 3) { // 120 <= degree < 180
-		return GREEN + (int)((portion - 256 * 2) / 256.0 * 32);
-	} else if (portion < 256 * 4) { // 180 <= degree < 240
-		return (63 - (int)((portion - 256 * 3) / 256.0 * 64) << 5) + BLUE;
-	} else if (portion < 256 * 5) { // 240 <= degree < 300
-		return BLUE + ((int)((portion - 256 * 4) / 256.0 * 32) << 11);
-	} else if (portion < 256 * 6) { // 300 <= degree < 360
-		return (int)(31 - (portion - 256 * 5) / 256.0 * 32) + RED;
-	}
+    if (portion < 256) { // 0 <= degree < 60
+        return RED + ((int) (portion / 256.0 * 64) << 5);
+    } else if (portion < 256 * 2) { // 60 <= degree < 120
+        return (31 - (int) ((portion - 256) / 256.0 * 32) << 11) + GREEN;
+    } else if (portion < 256 * 3) { // 120 <= degree < 180
+        return GREEN + (int) ((portion - 256 * 2) / 256.0 * 32);
+    } else if (portion < 256 * 4) { // 180 <= degree < 240
+        return (63 - (int) ((portion - 256 * 3) / 256.0 * 64) << 5) + BLUE;
+    } else if (portion < 256 * 5) { // 240 <= degree < 300
+        return BLUE + ((int) ((portion - 256 * 4) / 256.0 * 32) << 11);
+    } else if (portion < 256 * 6) { // 300 <= degree < 360
+        return (int) (31 - (portion - 256 * 5) / 256.0 * 32) + RED;
+    }
 }
 
 void getY(uint8_t index, uint8_t delay) {
-	if ((index & 0x01) == 0) {
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_RESET);
-	} else {
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_SET);
-	}
+    if ((index & 0x01) == 0) {
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_RESET);
+    } else {
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_SET);
+    }
 
-	if ((index & 0x02) == 0) {
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_RESET);
-	} else {
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_SET);
-	}
+    if ((index & 0x02) == 0) {
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_RESET);
+    } else {
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_9, GPIO_PIN_SET);
+    }
 
-	if ((index & 0x04) == 0) {
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10, GPIO_PIN_RESET);
-	} else {
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10, GPIO_PIN_SET);
-	}
+    if ((index & 0x04) == 0) {
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10, GPIO_PIN_RESET);
+    } else {
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10, GPIO_PIN_SET);
+    }
 
-	HAL_Delay(delay);
+    HAL_Delay(delay);
 }
+
+void mainPage(void) {
+    if (changingPage) {
+        changingPage = 0;
+        currentPage = home;
+        LCD_Clear(0, 0, 240, 320, BLACK);
+        char *output_text = "Welcome to the smart suitcase system";
+        LCD_DrawString_Color_With_Delay(0, 40, output_text, BLUE, WHITE, 10);
+        HAL_Delay(100);
+        output_text = "Please choose an option below.";
+        LCD_DrawString_Color(0, 100, output_text, BLACK, WHITE);
+        HAL_Delay(200);
+        LCD_Clear(20, 230, 80, 40, CYAN); //WEIGHT BOX: 20 ~ 100 / 210 ~ 250
+        output_text = "WEIGHT";
+        LCD_DrawString_Color_With_Delay(35, 242, output_text, CYAN, BLACK, 15);
+        HAL_Delay(200);
+        output_text = "ACCEL.";
+        LCD_Clear(130, 230, 80, 40, YELLOW); //BLUETOOTH: 130 ~ 210 / 210 ~ 250
+        LCD_DrawString_Color_With_Delay(150, 242, output_text, YELLOW, BLACK, 15);
+    }
+}
+
+void drawBackToHome() {
+    const char *output_text = "Return to Home";
+    LCD_Clear(20, 280, 130, 25, CYAN); // RETURN HOME BOX: 20 ~ 150 / 267 ~ 293
+    LCD_DrawString_Color_With_Delay(30, 285, output_text, CYAN, BLACK, 10);
+    HAL_Delay(30);
+}
+
+void weightPage(double KG) {
+    char *output_text;
+    if (changingPage) {
+        changingPage = 0;
+        currentPage = weight;
+        output_text = "W E I G H T D E T E C T I O N";
+        LCD_Clear(0, 0, 240, 320, BLACK);
+        LCD_DrawString_Color_With_Delay(0, 40, output_text, BLUE, WHITE, 10);
+        drawBackToHome();
+        for (uint8_t i = 0; i < 8; i++) {
+            char temp[10] = "";
+            sprintf(temp, "Y%d: ", i);
+            LCD_DrawString_Color(170, 140 + 18 * i, temp, BACKGROUND, WHITE);
+        }
+    }
+    output_text = "[K G]";
+    LCD_DrawString_Color(160, 100, output_text, BLUE, BLACK);
+
+    for (uint8_t counter = 0; counter < 8; counter++) {
+        getY(counter, 20);
+
+        unsigned int val = HAL_ADC_GetValue(&hadc2);
+
+        char dec[10] = "";
+
+        if (counter == 4) {
+            uint16_t color = HueToRGB565(val / 4096.0 * 256);
+            LCD_DrawEllipse(50, 280, 10, 10, color);
+        }
+
+        sprintf(dec, "%4d", val);
+        LCD_DrawString(200, 140 + 18 * counter, dec);
+    }
+
+
+    HAL_Delay(100);
+}
+
+void accelerometerPage() {
+    char *output_text;
+    if (changingPage) {
+        changingPage = 0;
+        currentPage = accelerometer;
+        output_text = "A C C E L E.";
+        LCD_Clear(0, 0, 240, 320, BLACK);
+        drawBackToHome();
+    }
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -154,72 +233,6 @@ void getY(uint8_t index, uint8_t delay) {
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	void mainPage(void) {
-		if(changingPage) {
-			changingPage = 0;
-			currentPage = home;
-			LCD_Clear(0, 0, 240, 320, BLACK);
-			char* output_text = "Welcome to the smart suitcase system";
-			LCD_DrawString_Color_With_Delay(0, 40, output_text, BLUE, WHITE, 10);
-			HAL_Delay(100);
-			output_text = "Please choose an option below.";
-			LCD_DrawString_Color(0, 100, output_text, BLACK, WHITE);
-			HAL_Delay(200);
-			LCD_Clear(20, 230, 80, 40, CYAN); //WEIGHT BOX: 20 ~ 100 / 210 ~ 250
-			output_text = "WEIGHT";
-			LCD_DrawString_Color_With_Delay(35, 242, output_text, CYAN, BLACK, 15);
-			HAL_Delay(200);
-			output_text = "BLUEBOOTH";
-			LCD_Clear(130, 230, 80, 40, YELLOW); //BLUETOOTH: 130 ~ 210 / 210 ~ 250
-			LCD_DrawString_Color_With_Delay(135, 242, output_text, YELLOW, BLACK, 15);
-		}
-	}
-
-	void weightPage(float KG) {
-		char* output_text;
-		if(changingPage) {
-			changingPage = 0;
-			currentPage = weight;
-			output_text = "W E I G H T D E T E C T I O N";
-			LCD_Clear(0, 0, 240, 320, BLACK);
-			LCD_DrawString_Color_With_Delay(0, 40, output_text, BLUE, WHITE, 10);
-			output_text = "Return to Home";
-			LCD_Clear(20, 280, 130, 25, CYAN); // RETURN HOME BOX: 20 ~ 150 / 267 ~ 293
-			LCD_DrawString_Color_With_Delay(30, 285, output_text, CYAN, BLACK, 10);
-			HAL_Delay(30);
-
-			for (uint8_t i = 0; i < 8; i++) {
-				char temp[10] = "";
-				sprintf(temp, "Y%d: ", i);
-				LCD_DrawString_Color(170, 140 + 18 * i, temp, BACKGROUND, WHITE);
-			}
-		}
-		//sprintf(output_text, "%f", KG);
-		//LCD_Clear(0, 80, 240, 30, BLACK);
-		//LCD_DrawString_Color(50, 100, output_text, BLACK, WHITE);
-		output_text = "[K G]";
-		LCD_DrawString_Color(160, 100, output_text, BLUE, BLACK);
-
-		for (uint8_t counter = 0; counter < 8; counter++) {
-			getY(counter, 20);
-
-			unsigned int val = HAL_ADC_GetValue(&hadc2);
-
-			char dec[10] = "";
-
-			if (counter == 4) {
-				uint16_t color = HueToRGB565(val / 4096.0 * 256);
-				LCD_DrawEllipse(50, 280, 10, 10, color);
-			}
-
-			sprintf(dec, "%4d", val);
-			LCD_DrawString(200, 140 + 18 * counter, dec);
-		}
-
-
-		HAL_Delay(100);
-	}
-
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -228,7 +241,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-	//HAL_UART_Receive_IT(&huart1, &rxData, 1); //enable global interruption
+    //HAL_UART_Receive_IT(&huart1, &rxData, 1); //enable global interruption
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -243,44 +256,40 @@ int main(void)
   MX_FSMC_Init();
   MX_USART1_UART_Init();
   MX_ADC2_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  HAL_ADCEx_Calibration_Start(&hadc2);
-  HAL_ADC_PollForConversion(&hadc2, 1000);
-  HAL_ADC_Start(&hadc2);
+    HAL_ADCEx_Calibration_Start(&hadc2);
+    HAL_ADC_PollForConversion(&hadc2, 1000);
+    HAL_ADC_Start(&hadc2);
 
-  macXPT2046_CS_DISABLE();
-  LCD_INIT();
-  currentPage = home;
-  HAL_Delay(50);
-  while( ! XPT2046_Touch_Calibrate () );
-  LCD_GramScan ( 1 );
-  LCD_Clear ( 0, 0, 240, 320, BLACK );
-  mainPage();
-  HAL_Delay(500);
+    macXPT2046_CS_DISABLE();
+    LCD_INIT();
+    currentPage = home;
+    HAL_Delay(50);
+    while (!XPT2046_Touch_Calibrate());
+    LCD_GramScan(1);
+    LCD_Clear(0, 0, 240, 320, BLACK);
+    mainPage();
+    HAL_Delay(500);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	while (1)
-	{
-		if (currentPage == home) mainPage();
-		else if (currentPage == weight) weightPage(0.0);
-		else mainPage();
-		char* debug;
-		if (currentPage == home) debug = "H";
-		else if (currentPage == weight) debug = "W";
-		else debug = "B";
-		LCD_DrawString_Color(200, 10, debug, BLACK, WHITE);
-		if ( ucXPT2046_TouchFlag == 1 ) {
-			Check_touchkey();
-			ucXPT2046_TouchFlag = 0;
-		}
-		HAL_Delay(50);
+    while (1) {
+        if (currentPage == home) mainPage();
+        else if (currentPage == weight) weightPage(0.0);
+        else if (currentPage == accelerometer) accelerometerPage();
+        else mainPage();
+        if (ucXPT2046_TouchFlag == 1) {
+            Check_touchkey();
+            ucXPT2046_TouchFlag = 0;
+        }
+        HAL_Delay(50);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
 
-	}
+    }
   /* USER CODE END 3 */
 }
 
@@ -374,6 +383,40 @@ static void MX_ADC2_Init(void)
   /* USER CODE BEGIN ADC2_Init 2 */
 
   /* USER CODE END ADC2_Init 2 */
+
+}
+
+/**
+  * @brief I2C1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C1_Init(void)
+{
+
+  /* USER CODE BEGIN I2C1_Init 0 */
+
+  /* USER CODE END I2C1_Init 0 */
+
+  /* USER CODE BEGIN I2C1_Init 1 */
+
+  /* USER CODE END I2C1_Init 1 */
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.ClockSpeed = 400000;
+  hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C1_Init 2 */
+
+  /* USER CODE END I2C1_Init 2 */
 
 }
 
@@ -574,11 +617,10 @@ static void MX_FSMC_Init(void)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-	/* User can add his own implementation to report the HAL error return state */
-	__disable_irq();
-	while (1)
-	{
-	}
+    /* User can add his own implementation to report the HAL error return state */
+    __disable_irq();
+    while (1) {
+    }
   /* USER CODE END Error_Handler_Debug */
 }
 
@@ -593,8 +635,8 @@ void Error_Handler(void)
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
-	/* User can add his own implementation to report the file name and line number,
-	   ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+    /* User can add his own implementation to report the file name and line number,
+       ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */

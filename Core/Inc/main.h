@@ -59,6 +59,7 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
 uint16_t HueToRGB565(uint8_t hue);
+
 void getY(uint8_t index, uint8_t delay);
 /* USER CODE END Private defines */
 
