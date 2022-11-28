@@ -192,9 +192,10 @@
 				21,
 				23,
 				25,
+				139,
 				141,
+				142,
 				143,
-				144,
 				145,
 				147,
 				149,
@@ -202,15 +203,13 @@
 				153,
 				155,
 				157,
-				159,
+				158,
 				160,
 				162,
 				164,
 				166,
 				168,
-				170,
-				172,
-				174
+				171
 			]
 		},
 		{
@@ -418,20 +417,18 @@
 				108,
 				110,
 				112,
-				114,
+				115,
 				116,
-				117,
-				119,
-				121,
-				123,
-				125,
-				127,
+				118,
+				120,
+				122,
+				124,
+				126,
+				128,
 				129,
-				130,
-				132,
-				134,
-				136,
-				138
+				131,
+				133,
+				136
 			]
 		},
 		{
@@ -494,36 +491,36 @@
 				109,
 				111,
 				113,
-				115,
-				118,
-				120,
-				122,
-				124,
-				126,
-				128,
-				131,
-				133,
+				114,
+				117,
+				119,
+				121,
+				123,
+				125,
+				127,
+				130,
+				132,
+				134,
 				135,
 				137,
-				139,
+				138,
 				140,
-				142,
+				144,
 				146,
 				148,
 				150,
 				152,
 				154,
 				156,
-				158,
+				159,
 				161,
 				163,
 				165,
 				167,
 				169,
-				171,
-				173,
-				175,
-				176
+				170,
+				172,
+				173
 			]
 		},
 		{
@@ -538,9 +535,10 @@
 				21,
 				23,
 				25,
+				139,
 				141,
+				142,
 				143,
-				144,
 				145,
 				147,
 				149,
@@ -548,15 +546,13 @@
 				153,
 				155,
 				157,
-				159,
+				158,
 				160,
 				162,
 				164,
 				166,
 				168,
-				170,
-				172,
-				174
+				171
 			]
 		}
 	],
@@ -1143,11 +1139,6 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
 			"path" : "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h.orig",
 			"sourceGroupIndex" : 1
 		},
@@ -1250,11 +1241,6 @@
 			"backtrace" : 1,
 			"path" : "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h.orig",
 			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h",
-			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
@@ -1447,12 +1433,6 @@
 			"backtrace" : 1,
 			"path" : "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.orig",
 			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c",
-			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 1,

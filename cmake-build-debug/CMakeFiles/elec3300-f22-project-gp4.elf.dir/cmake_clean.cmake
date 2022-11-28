@@ -50,8 +50,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj.d"
   "CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj"
   "CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj.d"
-  "CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj"
-  "CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj.d"
   "CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c.obj"
   "CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c.obj.d"
   "elec3300-f22-project-gp4.elf"

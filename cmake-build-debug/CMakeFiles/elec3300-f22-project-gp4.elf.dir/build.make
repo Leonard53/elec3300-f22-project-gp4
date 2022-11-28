@@ -432,24 +432,10 @@ CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.s"
 	/usr/local/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c -o CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.s
 
-CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj: CMakeFiles/elec3300-f22-project-gp4.elf.dir/flags.make
-CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c
-CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj: CMakeFiles/elec3300-f22-project-gp4.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj"
-	/usr/local/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj -MF CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj.d -o CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj -c /Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c
-
-CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.i"
-	/usr/local/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c > CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.i
-
-CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.s"
-	/usr/local/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c -o CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.s
-
 CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c.obj: CMakeFiles/elec3300-f22-project-gp4.elf.dir/flags.make
 CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c.obj: ../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c
 CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c.obj: CMakeFiles/elec3300-f22-project-gp4.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c.obj"
 	/usr/local/bin/arm-none-eabi-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c.obj -MF CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c.obj.d -o CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c.obj -c /Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c
 
 CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c.i: cmake_force
@@ -488,7 +474,6 @@ elec3300__f22__project__gp4_elf_OBJECTS = \
 "CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_sram.c.obj" \
 "CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj" \
 "CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj" \
-"CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj" \
 "CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c.obj"
 
 # External object files for target elec3300-f22-project-gp4.elf
@@ -520,11 +505,10 @@ elec3300-f22-project-gp4.elf: CMakeFiles/elec3300-f22-project-gp4.elf.dir/Driver
 elec3300-f22-project-gp4.elf: CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_sram.c.obj
 elec3300-f22-project-gp4.elf: CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
 elec3300-f22-project-gp4.elf: CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
-elec3300-f22-project-gp4.elf: CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
 elec3300-f22-project-gp4.elf: CMakeFiles/elec3300-f22-project-gp4.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c.obj
 elec3300-f22-project-gp4.elf: CMakeFiles/elec3300-f22-project-gp4.elf.dir/build.make
 elec3300-f22-project-gp4.elf: CMakeFiles/elec3300-f22-project-gp4.elf.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Linking C executable elec3300-f22-project-gp4.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Linking C executable elec3300-f22-project-gp4.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/elec3300-f22-project-gp4.elf.dir/link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Building /Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/elec3300-f22-project-gp4.hex"
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Building /Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/elec3300-f22-project-gp4.bin"

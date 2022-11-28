@@ -95,5 +95,7 @@ void LCD_DrawString_Color(uint16_t usC, uint16_t usP, const char *pStr, uint16_t
 
 void LCD_GramScan(uint8_t ucOption);
 
+void LCD_DrawString_Color_With_Delay(uint16_t usC, uint16_t usP, const char *pStr, uint16_t usColor_Background,
+                                     uint16_t usColor_Foreground, uint8_t delayEachChar);
 #endif
 

@@ -438,9 +438,6 @@
 		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h.orig">
 			<Option target="elec3300-f22-project-gp4.elf"/>
 		</Unit>
-		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h">
-			<Option target="elec3300-f22-project-gp4.elf"/>
-		</Unit>
 		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h.orig">
 			<Option target="elec3300-f22-project-gp4.elf"/>
 		</Unit>
@@ -502,9 +499,6 @@
 			<Option target="elec3300-f22-project-gp4.elf"/>
 		</Unit>
 		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h.orig">
-			<Option target="elec3300-f22-project-gp4.elf"/>
-		</Unit>
-		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h">
 			<Option target="elec3300-f22-project-gp4.elf"/>
 		</Unit>
 		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h.orig">
@@ -610,9 +604,6 @@
 			<Option target="elec3300-f22-project-gp4.elf"/>
 		</Unit>
 		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.orig">
-			<Option target="elec3300-f22-project-gp4.elf"/>
-		</Unit>
-		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c">
 			<Option target="elec3300-f22-project-gp4.elf"/>
 		</Unit>
 		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.orig">
