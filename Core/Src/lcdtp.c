@@ -7,6 +7,24 @@ void LCD_FillColor(uint32_t ulAmout_Point, uint16_t usColor);
 
 uint16_t LCD_Read_PixelData(void);
 
+uint16_t HueToRGB565(uint8_t hue) {
+    uint16_t portion = hue * 6;
+
+    if (portion < 256) { // 0 <= degree < 60
+        return RED + ((int) (portion / 256.0 * 64) << 5);
+    } else if (portion < 256 * 2) { // 60 <= degree < 120
+        return (31 - (int) ((portion - 256) / 256.0 * 32) << 11) + GREEN;
+    } else if (portion < 256 * 3) { // 120 <= degree < 180
+        return GREEN + (int) ((portion - 256 * 2) / 256.0 * 32);
+    } else if (portion < 256 * 4) { // 180 <= degree < 240
+        return (63 - (int) ((portion - 256 * 3) / 256.0 * 64) << 5) + BLUE;
+    } else if (portion < 256 * 5) { // 240 <= degree < 300
+        return BLUE + ((int) ((portion - 256 * 4) / 256.0 * 32) << 11);
+    } else if (portion < 256 * 6) { // 300 <= degree < 360
+        return (int) (31 - (portion - 256 * 5) / 256.0 * 32) + RED;
+    }
+}
+
 
 void Delay(__IO uint32_t nCount) {
     for (; nCount != 0; nCount--);
@@ -413,6 +431,16 @@ void LCD_DrawEllipse(uint16_t usC, uint16_t usP, uint16_t SR, uint16_t LR, uint1
             }
         }
     }
+}
+
+void LCD_DrawHeatCircle(uint16_t usC, uint16_t usP, uint16_t side, uint16_t radius, uint8_t usHueCenter, uint8_t usHueCorner) {
+	double colorCoef = (usHueCorner - usHueCenter) * 1.0 / sqrt(pow(side/2, 2) * 2);
+
+	for (int16_t col = usC - side/2; col <= usC + side/2; col++) {
+		for (int16_t pag = usP - side/2; pag <= usP + side/2; pag++) {
+			LCD_DrawDot(col, pag, HueToRGB565(sqrt(pow(col-usC, 2) + pow(pag-usP, 2)) * colorCoef + usHueCenter));
+		}
+	}
 }
 
 void LCD_DrawChar_Color(uint16_t usC, uint16_t usP, const char cChar, uint16_t usColor_Background,

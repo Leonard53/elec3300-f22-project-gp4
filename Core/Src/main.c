@@ -114,24 +114,6 @@ int16_t safeSubtract(int16_t a, int16_t b) {
     return b - a;
 }
 
-uint16_t HueToRGB565(uint8_t hue) {
-    uint16_t portion = hue * 6;
-
-    if (portion < 256) { // 0 <= degree < 60
-        return RED + ((int) (portion / 256.0 * 64) << 5);
-    } else if (portion < 256 * 2) { // 60 <= degree < 120
-        return (31 - (int) ((portion - 256) / 256.0 * 32) << 11) + GREEN;
-    } else if (portion < 256 * 3) { // 120 <= degree < 180
-        return GREEN + (int) ((portion - 256 * 2) / 256.0 * 32);
-    } else if (portion < 256 * 4) { // 180 <= degree < 240
-        return (63 - (int) ((portion - 256 * 3) / 256.0 * 64) << 5) + BLUE;
-    } else if (portion < 256 * 5) { // 240 <= degree < 300
-        return BLUE + ((int) ((portion - 256 * 4) / 256.0 * 32) << 11);
-    } else if (portion < 256 * 6) { // 300 <= degree < 360
-        return (int) (31 - (portion - 256 * 5) / 256.0 * 32) + RED;
-    }
-}
-
 void getY(uint8_t index, uint8_t delay) {
     if ((index & 0x01) == 0) {
         HAL_GPIO_WritePin(GPIOC, GPIO_PIN_8, GPIO_PIN_RESET);
@@ -253,13 +235,12 @@ void weightPage(void) {
         if (weightPin < 0) weightPin = 0;
         sum += weightPin;
 
-        char dec[10] = "";
-
         if (counter < 4)
-			LCD_DrawEllipse(25, 240 - counter * 40, 10, 10, HueToRGB565(val / 4096.0 * 256));
+        	LCD_DrawHeatCircle(30, 240 - counter * 40, 40, 10, 85 - val * 85 / 4096, 85);
 		else
-			LCD_DrawEllipse(75, 120 + (counter - 4) * 40, 10, 10, HueToRGB565(val / 4096.0 * 256));
+			LCD_DrawHeatCircle(70, 120 + (counter - 4) * 40, 40, 10, 85 - val * 85 / 4096, 85);
 
+        char dec[10] = "";
         sprintf(dec, "%4d %5d", val, weightPin);
         LCD_DrawString_Color(140, 100 + 18 * counter, dec, BACKGROUND, WHITE);
     }
