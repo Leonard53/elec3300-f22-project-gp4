@@ -29,6 +29,7 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -49,11 +50,6 @@ SRAM_HandleTypeDef hsram1;
 
 /* USER CODE BEGIN PV */
 uint8_t rxData;
-<<<<<<< HEAD
-enum Page currentPage = home;
-int changingPage = 1;
-struct YPin weightPins[8];
-=======
 enum Page {
     home, weight, accelerometer
 };
@@ -61,7 +57,6 @@ enum Page currentPage = home;
 int changingPage = 1;
 int16_t initX_Acc_Reading = 0, initY_Acc_Reading = 0, initZ_Acc_Reading = 0;
 
->>>>>>> main
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -133,10 +128,6 @@ uint16_t HueToRGB565(uint8_t hue) {
     } else if (portion < 256 * 6) { // 300 <= degree < 360
         return (int) (31 - (portion - 256 * 5) / 256.0 * 32) + RED;
     }
-}
-
-void initPins(struct YPin pin) {
-
 }
 
 void getY(uint8_t index, uint8_t delay) {
@@ -327,14 +318,7 @@ int main(void) {
 
     /* USER CODE BEGIN SysInit */
 
-<<<<<<< HEAD
-			if (counter < 4)
-				LCD_DrawEllipse(50, 240 - counter * 40, 10, 10, HueToRGB565(val / 4096.0 * 256));
-			else
-				LCD_DrawEllipse(100, 120 + (counter - 4) * 40, 10, 10, HueToRGB565(val / 4096.0 * 256));
-=======
     /* USER CODE END SysInit */
->>>>>>> main
 
     /* Initialize all configured peripherals */
     MX_GPIO_Init();
