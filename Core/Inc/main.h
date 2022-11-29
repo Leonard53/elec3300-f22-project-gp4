@@ -36,7 +36,13 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+struct YPin {
+	uint8_t pinID;
+	uint16_t voltageZero;
+	uint16_t voltageSample;
+	uint16_t weightSample;
+};
+enum Page {home, weight, bluetooth};
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -59,8 +65,9 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
 uint16_t HueToRGB565(uint8_t hue);
-
 void getY(uint8_t index, uint8_t delay);
+void initPins(struct YPin pin);
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
