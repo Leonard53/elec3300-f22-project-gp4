@@ -85,6 +85,8 @@ void LCD_DrawDot(uint16_t usC, uint16_t usP, uint16_t usColor);
 
 void LCD_DrawEllipse(uint16_t usC, uint16_t usP, uint16_t SR, uint16_t LR, uint16_t usColor);
 
+void LCD_DrawHeatCircle(uint16_t usC, uint16_t usP, uint16_t side, uint16_t radius, uint8_t usHueCenter, uint8_t usHueCorner);
+
 void LCD_DrawCross(uint16_t usX, uint16_t usY);
 
 void LCD_DrawChar_Color(uint16_t usC, uint16_t usP, const char cChar, uint16_t usColor_Background,
@@ -97,5 +99,8 @@ void LCD_GramScan(uint8_t ucOption);
 
 void LCD_DrawString_Color_With_Delay(uint16_t usC, uint16_t usP, const char *pStr, uint16_t usColor_Background,
                                      uint16_t usColor_Foreground, uint8_t delayEachChar);
+
+uint16_t HueToRGB565(uint8_t hue);
+
 #endif
 
