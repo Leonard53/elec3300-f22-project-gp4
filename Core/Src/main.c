@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stdio.h"
+#include "math.h"
 #include "stdlib.h"
 #include "lcdtp.h"
 #include "xpt2046.h"
@@ -29,13 +30,17 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+struct accelerometerRecord{
+    int16_t rawX, rawY, rawZ;
+};
 
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 /* USER CODE END PD */
-
+#define ACCELE_TIME_SAMPLE 0.1
+#define ACCELE_RECORD_MAX_SIZE 100
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 
@@ -56,7 +61,9 @@ enum Page {
 enum Page currentPage = home;
 int changingPage = 1;
 int16_t initX_Acc_Reading = 0, initY_Acc_Reading = 0, initZ_Acc_Reading = 0;
-
+struct accelerometerRecord accleRecord[ACCELE_RECORD_MAX_SIZE]; //storing the past data of the accelerometer for calculating distance
+struct accelerometerRecord distanceRecord;
+short acceleRecordSize = 0; //storing the current index of accleRecord. Elemets should shift left if full
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -99,17 +106,56 @@ void Check_touchkey() {
     }
 }
 
-int16_t combineUint_8ts(uint8_t a, uint8_t b) {
-    return ((0xFFFF & a) << 8) | (0xFFFF & b);
+void shiftAcceleRecord(){
+    if (acceleRecordSize < ACCELE_RECORD_MAX_SIZE) {
+        return;
+    }
+    for(short i = 1; i < ACCELE_RECORD_MAX_SIZE; ++i){
+        accleRecord[i - 1].rawX = accleRecord[i].rawX;
+        accleRecord[i - 1].rawY = accleRecord[i].rawY;
+        accleRecord[i - 1].rawZ = accleRecord[i].rawZ;
+    }
+    acceleRecordSize--;
 }
 
-/** This function returns a - b or b - a, whichever element is greater.
- * Will always result in positive value */
-int16_t safeSubtract(int16_t a, int16_t b) {
-    if (a > b) {
-        return a - b;
+void insertAcceleRecord(uint16_t rawX, uint16_t rawY, uint16_t rawZ){
+    while (acceleRecordSize > ACCELE_RECORD_MAX_SIZE){
+        shiftAcceleRecord();
     }
-    return b - a;
+    accleRecord[ACCELE_RECORD_MAX_SIZE - 1].rawX = rawX;
+    accleRecord[ACCELE_RECORD_MAX_SIZE - 1].rawY = rawY;
+    accleRecord[ACCELE_RECORD_MAX_SIZE - 1].rawZ = rawZ;
+    acceleRecordSize++;
+}
+
+struct accelerometerRecord calculateAverage(short sampleRequired){
+    struct accelerometerRecord r_value;
+    if (sampleRequired > ACCELE_RECORD_MAX_SIZE){
+        r_value.rawX = 0;
+        r_value.rawY = 0;
+        r_value.rawZ = 0;
+        return r_value;
+    }
+    uint32_t x_accum = 0, y_accum = 0, z_accum = 0;
+    for (short i = ACCELE_RECORD_MAX_SIZE - sampleRequired; i < ACCELE_RECORD_MAX_SIZE; ++i){
+        x_accum += accleRecord[i].rawX;
+        y_accum += accleRecord[i].rawY;
+        z_accum += accleRecord[i].rawZ;
+    }
+    r_value.rawX = floor((double) x_accum / sampleRequired);
+    r_value.rawY = floor((double) y_accum / sampleRequired);
+    r_value.rawZ = floor((double) z_accum / sampleRequired);
+    return r_value;
+};
+
+void updateDisplacement(struct accelerometerRecord newRecord){
+    distanceRecord.rawX = (distanceRecord.rawX + newRecord.rawX) / 2;
+    distanceRecord.rawY = (distanceRecord.rawY + newRecord.rawY) / 2;
+    distanceRecord.rawZ = (distanceRecord.rawZ + newRecord.rawZ) / 2;
+}
+
+int16_t combineUint_8ts(uint8_t a, uint8_t b) {
+    return ((0xFFFF & a) << 8) | (0xFFFF & b);
 }
 
 uint16_t HueToRGB565(uint8_t hue) {
@@ -177,7 +223,7 @@ void drawBackToHome() {
     const char *output_text = "Return to Home";
     LCD_Clear(20, 280, 130, 25, CYAN); // RETURN HOME BOX: 20 ~ 150 / 267 ~ 293
     LCD_DrawString_Color_With_Delay(30, 285, output_text, CYAN, BLACK, 10);
-    HAL_Delay(30);
+    HAL_Delay(20);
 }
 
 void weightPage(double KG) {
@@ -187,7 +233,7 @@ void weightPage(double KG) {
         currentPage = weight;
         output_text = "W E I G H T D E T E C T I O N";
         LCD_Clear(0, 0, 240, 320, BLACK);
-        LCD_DrawString_Color_With_Delay(0, 40, output_text, BLUE, WHITE, 10);
+        LCD_DrawString_Color_With_Delay(20, 40, output_text, BLUE, WHITE, 10);
         drawBackToHome();
         for (uint8_t i = 0; i < 8; i++) {
             char temp[10] = "";
@@ -278,7 +324,7 @@ void accelerometerPage() {
     // 0x3A for writing address, 0x3B for reading address
     uint8_t *arrayOfData = malloc(6 * sizeof(uint8_t));
     //arrayofData[1] = x1, arrayofData[0] = x2, arrayofData[3] = y1 .....
-    HAL_I2C_Mem_Read(&hi2c2, 0x1D << 1, 0x32, 1, arrayOfData, 6, 100);
+    HAL_I2C_Mem_Read(&hi2c2, 0x1D << 1, 0x32, 1, arrayOfData, 6, 90);
     char x_print[10] = "", y_print[10] = "", z_print[10] = "";
     double finalizedX = 0.0, finalizedY = 0.0, finalizedZ = 0.0;
     // All axes have a scale factor of 7.8
@@ -291,7 +337,8 @@ void accelerometerPage() {
     LCD_DrawString_Color(150, 100, x_print, CYAN, BLACK);
     LCD_DrawString_Color(150, 130, y_print, YELLOW, BLACK);
     LCD_DrawString_Color(150, 160, z_print, BLUE, BLACK);
-    HAL_Delay(30);
+    HAL_Delay(10);
+    free(arrayOfData);
 }
 
 /* USER CODE END 0 */
@@ -336,6 +383,9 @@ int main(void) {
     LCD_GramScan(1);
     LCD_Clear(0, 0, 240, 320, BLACK);
     mainPage();
+    distanceRecord.rawX = 0;
+    distanceRecord.rawY = 0;
+    distanceRecord.rawZ = 0;
     HAL_Delay(500);
     /* USER CODE END 2 */
 
