@@ -55,6 +55,13 @@
 #define      CMD_SetPixel         0x2C
 
 
+struct YPinData {
+	uint16_t x;
+	uint16_t y;
+	uint8_t color;
+};
+
+
 void LCD_INIT(void);
 
 void LCD_Rst(void);
@@ -85,7 +92,13 @@ void LCD_DrawDot(uint16_t usC, uint16_t usP, uint16_t usColor);
 
 void LCD_DrawEllipse(uint16_t usC, uint16_t usP, uint16_t SR, uint16_t LR, uint16_t usColor);
 
-void LCD_DrawHeatCircle(uint16_t usC, uint16_t usP, uint16_t side, uint16_t radius, uint8_t usHueCenter, uint8_t usHueCorner);
+void LCD_DrawHeatCircle(uint16_t usC, uint16_t usP, uint16_t radius, uint8_t usHueCenter, uint8_t usHueCorner);
+
+void LCD_InitHeatCoords(struct YPinData *data);
+
+void LCD_SetPinColor(struct YPinData *data, uint16_t color);
+
+uint16_t LCD_DistSqr(struct YPinData *data, uint16_t x, uint16_t y);
 
 void LCD_DrawCross(uint16_t usX, uint16_t usY);
 
