@@ -55,6 +55,7 @@ SRAM_HandleTypeDef hsram1;
 
 /* USER CODE BEGIN PV */
 uint8_t rxData;
+
 enum Page {
     home, weight, accelerometer
 };
@@ -251,10 +252,10 @@ void weightPage(double KG) {
 
         char dec[10] = "";
 
-        if (counter == 4) {
-            uint16_t color = HueToRGB565(val / 4096.0 * 256);
-            LCD_DrawEllipse(50, 280, 10, 10, color);
-        }
+        if (counter < 4)
+			LCD_DrawEllipse(50, 240 - counter * 40, 10, 10, HueToRGB565(val / 4096.0 * 256));
+		else
+			LCD_DrawEllipse(100, 120 + (counter - 4) * 40, 10, 10, HueToRGB565(val / 4096.0 * 256));
 
         sprintf(dec, "%4d", val);
         LCD_DrawString(200, 140 + 18 * counter, dec);
