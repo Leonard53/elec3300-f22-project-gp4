@@ -34,7 +34,6 @@
 struct accelerometerRecord {
     int16_t rawX, rawY, rawZ;
 };
-
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -59,7 +58,6 @@ I2C_HandleTypeDef hi2c2;
 SRAM_HandleTypeDef hsram1;
 
 /* USER CODE BEGIN PV */
-
 enum Page {
     home, weight, accelerometer
 };
@@ -76,7 +74,6 @@ struct accelerometerRecord accleRecord[RECORD_MAX_SIZE]; //storing the past data
 short acceleRecordSize = 0; //storing the current index of accleRecord. Elemets should shift left if full
 struct YPin weightSensors[8];
 struct YPinData weightSensorsData[8];
-struct YPin weightSensors[8];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -364,7 +361,7 @@ void weightPage(void) {
 
         LCD_SetPinColor(&weightSensorsData[counter], 85 - val * 85 / 4096);
 
-        char dec[10] = "";
+        char dec[12] = "";
         sprintf(dec, "%4d %5d", val, weightPin);
         LCD_DrawString_Color(140, 100 + 18 * counter, dec, BACKGROUND, WHITE);
     }
@@ -546,6 +543,7 @@ void accelerometerPage() {
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -554,7 +552,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-    //HAL_UART_Receive_IT(&huart1, &rxData, 1); //enable global interruption
+
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -570,36 +568,36 @@ int main(void)
   MX_ADC2_Init();
   MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
-    HAL_ADCEx_Calibration_Start(&hadc2);
-    HAL_ADC_PollForConversion(&hadc2, 1000);
-    HAL_ADC_Start(&hadc2);
-    LCD_INIT();
-    currentPage = home;
-    HAL_Delay(50);
-    while (!XPT2046_Touch_Calibrate());
-    LCD_GramScan(1);
-    LCD_Clear(0, 0, 240, 320, BLACK);
-    mainPage();
-    HAL_Delay(500);
+  HAL_ADCEx_Calibration_Start(&hadc2);
+  HAL_ADC_PollForConversion(&hadc2, 1000);
+  HAL_ADC_Start(&hadc2);
+  LCD_INIT();
+  currentPage = home;
+  HAL_Delay(50);
+  while (!XPT2046_Touch_Calibrate());
+  LCD_GramScan(1);
+  LCD_Clear(0, 0, 240, 320, BLACK);
+  mainPage();
+  HAL_Delay(500);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-    while (1) {
-        if (currentPage == home) mainPage();
-        else if (currentPage == weight) weightPage();
-        else if (currentPage == accelerometer) accelerometerPage();
-        else mainPage();
-        if (ucXPT2046_TouchFlag == 1) {
-            Check_touchkey();
-            ucXPT2046_TouchFlag = 0;
-        }
-        HAL_Delay(50);
+  while (1)
+  {
+  	if (currentPage == home) mainPage();
+    else if (currentPage == weight) weightPage();
+    else if (currentPage == accelerometer) accelerometerPage();
+    else mainPage();
+    if (ucXPT2046_TouchFlag == 1) {
+        Check_touchkey();
+        ucXPT2046_TouchFlag = 0;
+    }
+    HAL_Delay(150);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
-    }
+  }
   /* USER CODE END 3 */
 }
 
@@ -894,10 +892,11 @@ static void MX_FSMC_Init(void)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-    /* User can add his own implementation to report the HAL error return state */
-    __disable_irq();
-    while (1) {
-    }
+  /* User can add his own implementation to report the HAL error return state */
+  __disable_irq();
+  while (1)
+  {
+  }
   /* USER CODE END Error_Handler_Debug */
 }
 
@@ -912,8 +911,8 @@ void Error_Handler(void)
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
-    /* User can add his own implementation to report the file name and line number,
-       ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */

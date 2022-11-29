@@ -63,8 +63,6 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-uint16_t HueToRGB565(uint8_t hue);
-
 void Check_touchkey();
 
 void clearAcceleRecord();
