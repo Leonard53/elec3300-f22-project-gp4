@@ -98,11 +98,6 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.elec3300-f22-project-gp4.elf">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="elec3300-f22-project-gp4.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="elec3300-f22-project-gp4" TARGET_NAME="elec3300-f22-project-gp4.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="elec3300-f22-project-gp4" RUN_TARGET_NAME="elec3300-f22-project-gp4.elf">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
