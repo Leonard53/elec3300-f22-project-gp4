@@ -72,7 +72,7 @@ uint16_t angleRecord[RECORD_MAX_SIZE]; //storing the past data of the angle the 
 short acceleRecordSize, angleRecordSize = 0; //storing the current index of accleRecord/angleRecord. Elemets should shift left if full
 uint32_t distanceTraveled = 0; //storing the distance travelled in total. Reset when users return to home.
 double actualDistance = 0.0;
-struct accelerometerRecord accleRecord[ACCELE_RECORD_MAX_SIZE]; //storing the past data of the accelerometer for calculating distance
+struct accelerometerRecord accleRecord[RECORD_MAX_SIZE]; //storing the past data of the accelerometer for calculating distance
 short acceleRecordSize = 0; //storing the current index of accleRecord. Elemets should shift left if full
 struct YPin weightSensors[8];
 struct YPinData weightSensorsData[8];
@@ -224,24 +224,6 @@ short isRotating() {
         } else return 0;
     }
     return 1;
-}
-
-uint16_t HueToRGB565(uint8_t hue) {
-    uint16_t portion = hue * 6;
-
-    if (portion < 256) { // 0 <= degree < 60
-        return RED + ((int) (portion / 256.0 * 64) << 5);
-    } else if (portion < 256 * 2) { // 60 <= degree < 120
-        return (31 - (int) ((portion - 256) / 256.0 * 32) << 11) + GREEN;
-    } else if (portion < 256 * 3) { // 120 <= degree < 180
-        return GREEN + (int) ((portion - 256 * 2) / 256.0 * 32);
-    } else if (portion < 256 * 4) { // 180 <= degree < 240
-        return (63 - (int) ((portion - 256 * 3) / 256.0 * 64) << 5) + BLUE;
-    } else if (portion < 256 * 5) { // 240 <= degree < 300
-        return BLUE + ((int) ((portion - 256 * 4) / 256.0 * 32) << 11);
-    } else if (portion < 256 * 6) { // 300 <= degree < 360
-        return (int) (31 - (portion - 256 * 5) / 256.0 * 32) + RED;
-    }
 }
 
 void getY(uint8_t index, uint8_t delay) {
