@@ -496,9 +496,9 @@ void LCD_PrintHeatMap(struct YPinData *data) {
 			uint16_t weightedHue = 0;
 			for (uint8_t sensor = 0; sensor < 8; sensor++) {
 				if (distSqrInAlteredCircle[sensor] != -1) {
-					uint8_t hue = (255 - data[sensor].color) * (distSqrInAlteredCircle[sensor] - 100) / 800 + data[sensor].color;
-					distSqrSum += distSqrInAlteredCircle[sensor];
-					weightedHue += distSqrInAlteredCircle[sensor] * data[sensor].color;
+					uint8_t hue = (255 - data[sensor].color) * (sqrt(distSqrInAlteredCircle[sensor]) - 10) / 20 + data[sensor].color;
+					distSqrSum += sqrt(distSqrInAlteredCircle[sensor]);
+					weightedHue += sqrt(distSqrInAlteredCircle[sensor]) * data[sensor].color;
 				}
 			}
 
