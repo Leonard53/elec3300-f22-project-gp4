@@ -58,6 +58,7 @@ int changingPage = 1;
 int16_t initX_Acc_Reading = 0, initY_Acc_Reading = 0, initZ_Acc_Reading = 0;
 
 struct YPin weightSensors[8];
+struct YPinData weightSensorsData[8];
 
 /* USER CODE END PV */
 
@@ -222,8 +223,6 @@ void weightPage(void) {
             sprintf(temp, "Y%d: ", i);
             LCD_DrawString_Color(110, 100 + 18 * i, temp, BACKGROUND, WHITE);
         }
-
-		initWeightSensors(weightSensors);
     }
 
     uint16_t sum = 0;
@@ -235,19 +234,22 @@ void weightPage(void) {
         if (weightPin < 0) weightPin = 0;
         sum += weightPin;
 
-        if (counter < 4)
-        	LCD_DrawHeatCircle(30, 240 - counter * 40, 40, 10, 85 - val * 85 / 4096, 85);
-		else
-			LCD_DrawHeatCircle(70, 120 + (counter - 4) * 40, 40, 10, 85 - val * 85 / 4096, 85);
+//        if (counter < 4)
+//        	LCD_DrawHeatCircle(30, 240 - counter * 40, 30, 85 - val * 85 / 4096, 85);
+//		else
+//			LCD_DrawHeatCircle(70, 120 + (counter - 4) * 40, 30, 85 - val * 85 / 4096, 85);
+
+        LCD_SetPinColor(&weightSensorsData[counter], 85 - val * 85 / 4096);
 
         char dec[10] = "";
         sprintf(dec, "%4d %5d", val, weightPin);
         LCD_DrawString_Color(140, 100 + 18 * counter, dec, BACKGROUND, WHITE);
     }
+	LCD_PrintHeatMap(weightSensorsData);
 
     char output_gram[20] = "";
     sprintf(output_gram, "%6d Gram", sum);
-    LCD_DrawString_Color(120, 80, output_gram, BLUE, BLACK);
+    LCD_DrawString_Color(120, 80, output_gram, BLUE, WHITE);
 
     HAL_Delay(20);
 }
@@ -370,6 +372,10 @@ int main(void) {
     LCD_GramScan(1);
     LCD_Clear(0, 0, 240, 320, BLACK);
     mainPage();
+
+    initWeightSensors(weightSensors);
+    LCD_InitHeatCoords(weightSensorsData);
+
     HAL_Delay(500);
     /* USER CODE END 2 */
 

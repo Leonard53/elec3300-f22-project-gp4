@@ -433,12 +433,76 @@ void LCD_DrawEllipse(uint16_t usC, uint16_t usP, uint16_t SR, uint16_t LR, uint1
     }
 }
 
-void LCD_DrawHeatCircle(uint16_t usC, uint16_t usP, uint16_t side, uint16_t radius, uint8_t usHueCenter, uint8_t usHueCorner) {
-	double colorCoef = (usHueCorner - usHueCenter) * 1.0 / sqrt(pow(side/2, 2) * 2);
+void LCD_DrawHeatCircle(uint16_t usC, uint16_t usP, uint16_t radius, uint8_t usHueCenter, uint8_t usHueCorner) {
+	double colorCoef = (usHueCorner - usHueCenter) * 1.0 / sqrt(pow(radius, 2) * 2);
 
-	for (int16_t col = usC - side/2; col <= usC + side/2; col++) {
-		for (int16_t pag = usP - side/2; pag <= usP + side/2; pag++) {
-			LCD_DrawDot(col, pag, HueToRGB565(sqrt(pow(col-usC, 2) + pow(pag-usP, 2)) * colorCoef + usHueCenter));
+	float xda, ydb, result;
+
+	for (int16_t col = usC - radius; col <= usC + radius; col++) {
+		for (int16_t pag = usP - radius; pag <= usP + radius; pag++) {
+			if (col < 0 || col >= LCD_Default_Max_COLUMN || pag < 0 || pag >= LCD_Default_Max_PAGE) break;
+
+			xda = (col - usC) / (float) radius;
+			ydb = (pag - usP) / (float) radius;
+			result = xda * xda + ydb * ydb;
+
+			if (result <= 1) LCD_DrawDot(col, pag, HueToRGB565(sqrt(pow(col-usC, 2) + pow(pag-usP, 2)) * colorCoef + usHueCenter));
+		}
+	}
+}
+
+void LCD_InitHeatCoords(struct YPinData *data) {
+	for (uint8_t i = 0; i < 8; i++)
+		if (i < 4) {
+			data[i].x = 30;
+			data[i].y = 240 - i * 40;
+		} else {
+			data[i].x = 70;
+			data[i].y = 120 + (i - 4) * 40;
+		}
+}
+void LCD_SetPinColor(struct YPinData *data, uint16_t color) {
+	data->color = color;
+}
+
+uint16_t LCD_DistSqr(struct YPinData *data, uint16_t x, uint16_t y) {
+	return pow(data->x - x, 2) + pow(data->y - y, 2);
+}
+
+void LCD_PrintHeatMap(struct YPinData *data) {
+	// Loop all pixels inside the rectangular heat map
+	for (uint16_t col = data[3].x - 20; col <= data[4].x + 20; col++) {
+		for (uint16_t pag = data[3].y - 20; pag <= data[7].y + 20; pag++) {
+			// Check if in safe circle and altered circle, -1 means not exist
+			int8_t inSafeCircle = -1;
+			int16_t distSqrInAlteredCircle[8] = {-1};
+
+			for (uint8_t sensor = 0; sensor < 8; sensor++) {
+				uint16_t dist_sqr = LCD_DistSqr(&data[sensor], col, pag);
+				if (dist_sqr <= 100) {
+					inSafeCircle = sensor;
+					break;
+				} else if (dist_sqr <= 900) {
+					distSqrInAlteredCircle[sensor] = dist_sqr;
+				}
+			}
+
+			if (inSafeCircle != -1) {
+				LCD_DrawDot(col, pag, HueToRGB565(data[inSafeCircle].color));
+				continue;
+			}
+
+			uint16_t distSqrSum = 0;
+			uint16_t weightedHue = 0;
+			for (uint8_t sensor = 0; sensor < 8; sensor++) {
+				if (distSqrInAlteredCircle[sensor] != -1) {
+					uint8_t hue = (255 - data[sensor].color) * (distSqrInAlteredCircle[sensor] - 100) / 800 + data[sensor].color;
+					distSqrSum += distSqrInAlteredCircle[sensor];
+					weightedHue += distSqrInAlteredCircle[sensor] * data[sensor].color;
+				}
+			}
+
+			LCD_DrawDot(col, pag, HueToRGB565(weightedHue/distSqrSum));
 		}
 	}
 }
