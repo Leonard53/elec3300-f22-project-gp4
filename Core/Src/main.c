@@ -27,7 +27,6 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -48,9 +47,9 @@ SRAM_HandleTypeDef hsram1;
 
 /* USER CODE BEGIN PV */
 uint8_t rxData;
-enum Page {home, weight, bluetooth};
 enum Page currentPage = home;
 int changingPage = 1;
+struct YPin weightPins[8];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -122,6 +121,10 @@ uint16_t HueToRGB565(uint8_t hue) {
 	} else if (portion < 256 * 6) { // 300 <= degree < 360
 		return (int)(31 - (portion - 256 * 5) / 256.0 * 32) + RED;
 	}
+}
+
+void initPins(struct YPin pin) {
+
 }
 
 void getY(uint8_t index, uint8_t delay) {
@@ -207,10 +210,10 @@ int main(void)
 
 			char dec[10] = "";
 
-			if (counter == 4) {
-				uint16_t color = HueToRGB565(val / 4096.0 * 256);
-				LCD_DrawEllipse(50, 280, 10, 10, color);
-			}
+			if (counter < 4)
+				LCD_DrawEllipse(50, 240 - counter * 40, 10, 10, HueToRGB565(val / 4096.0 * 256));
+			else
+				LCD_DrawEllipse(100, 120 + (counter - 4) * 40, 10, 10, HueToRGB565(val / 4096.0 * 256));
 
 			sprintf(dec, "%4d", val);
 			LCD_DrawString(200, 140 + 18 * counter, dec);
