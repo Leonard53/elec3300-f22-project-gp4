@@ -5,7 +5,6 @@
 *.o
 *.ko
 *.obj
-*.elf
 
 # Linker output
 *.ilk
@@ -55,7 +54,6 @@ dkms.conf
 *.o
 *.ko
 *.obj
-*.elf
 
 # Libraries
 *.lib
@@ -160,7 +158,6 @@ tags
 *.o
 *.ko
 *.obj
-*.elf
 
 # Precompiled Headers
 *.gch
