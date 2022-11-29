@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="elec3300-f22-project-gp4"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="elec3300-f22-project-gp4.elf">
+				<Option output="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/elec3300-f22-project-gp4.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DDEBUG"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32F103xE"/>
+					<Add directory="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Inc"/>
+					<Add directory="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc"/>
+					<Add directory="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Device/ST/STM32F1xx/Include"/>
+					<Add directory="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/arm-none-eabi"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/backward"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/include"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/include-fixed"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 elec3300-f22-project-gp4.elf"/>
+					<CompileFile command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="elec3300-f22-project-gp4.elf/fast">
+				<Option output="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/elec3300-f22-project-gp4.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DDEBUG"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32F103xE"/>
+					<Add directory="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Inc"/>
+					<Add directory="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc"/>
+					<Add directory="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Device/ST/STM32F1xx/Include"/>
+					<Add directory="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/arm-none-eabi"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/backward"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/include"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/include-fixed"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 elec3300-f22-project-gp4.elf/fast"/>
+					<CompileFile command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Inc/ascii.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Inc/ascii.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Inc/lcdtp.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Inc/lcdtp.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Inc/main.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Inc/stm32f1xx_hal_conf.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Inc/stm32f1xx_hal_conf.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Inc/stm32f1xx_it.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Inc/stm32f1xx_it.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Inc/xpt2046.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Inc/xpt2046.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Src/lcdtp.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Src/lcdtp.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Src/main.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Src/main.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Src/stm32f1xx_hal_msp.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Src/stm32f1xx_hal_msp.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Src/stm32f1xx_it.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Src/stm32f1xx_it.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Src/syscalls.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Src/syscalls.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Src/sysmem.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Src/sysmem.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Src/system_stm32f1xx.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Src/system_stm32f1xx.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Src/xpt2046.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Src/xpt2046.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Core/Startup/startup_stm32f103vetx.s">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xe.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Device/ST/STM32F1xx/License.md">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/cmsis_armcc.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/cmsis_armcc.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/cmsis_armclang.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/cmsis_armclang.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/cmsis_compiler.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/cmsis_compiler.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/cmsis_gcc.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/cmsis_gcc.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/cmsis_iccarm.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/cmsis_iccarm.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/cmsis_version.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/cmsis_version.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_armv8mbl.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_armv8mbl.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_armv8mml.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_armv8mml.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_cm0.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_cm0.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_cm0plus.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_cm0plus.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_cm1.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_cm1.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_cm23.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_cm23.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_cm3.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_cm3.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_cm33.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_cm33.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_cm4.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_cm4.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_cm7.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_cm7.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_sc000.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_sc000.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_sc300.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/core_sc300.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/mpu_armv7.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/mpu_armv7.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/mpu_armv8.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/mpu_armv8.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/tz_context.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/Include/tz_context.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/CMSIS/LICENSE.txt">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_sram.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_sram.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_adc.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_cortex.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_cortex.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_dma.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_dma.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_fsmc.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_fsmc.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_gpio.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_gpio.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_i2c.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_pwr.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_pwr.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_utils.h">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_utils.h.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/License.md">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc_ex.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_sram.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_sram.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_fsmc.c.orig">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/STM32F103VETX_FLASH.ld">
+			<Option target="elec3300-f22-project-gp4.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
