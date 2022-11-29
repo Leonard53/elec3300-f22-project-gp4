@@ -37,10 +37,10 @@ extern "C" {
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
 struct YPin {
-	uint16_t voltageAtZeroWeight;
-	uint16_t voltageAtSampledWeight;
-	uint16_t weightAtSampledWeight;
-	double weightCoef;
+    uint16_t voltageAtZeroWeight;
+    uint16_t voltageAtSampledWeight;
+    uint16_t weightAtSampledWeight;
+    double weightCoef;
 };
 /* USER CODE END ET */
 
@@ -65,10 +65,36 @@ void Error_Handler(void);
 /* USER CODE BEGIN Private defines */
 uint16_t HueToRGB565(uint8_t hue);
 
+void Check_touchkey();
+
+void clearAcceleRecord();
+
+void clearAngleRecord();
+
+void shiftAcceleRecord();
+
+void shiftAngleRecord();
+
+void insertAcceleRecord(uint16_t rawX, uint16_t rawY, uint16_t rawZ);
+
+void insertAngleRecord(uint8_t newAngle);
+
+void updateDistance(int16_t newX, int16_t newY, int16_t newZ);
+
+int16_t combineUint_8ts(uint8_t a, uint8_t b);
+
+short isRotating();
+
 void getY(uint8_t index, uint8_t delay);
 
+void initializeHMC5883L();
+
+void drawBackToHome();
+
 void initWeightSensor(struct YPin pin, uint16_t vAt0, uint16_t vAtS, uint16_t wAtS);
+
 void initWeightSensors(struct YPin *pins);
+
 uint16_t calculateWeight(double weightCoef, uint16_t weight);
 /* USER CODE END Private defines */
 
