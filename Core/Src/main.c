@@ -29,7 +29,6 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -57,6 +56,8 @@ enum Page {
 enum Page currentPage = home;
 int changingPage = 1;
 int16_t initX_Acc_Reading = 0, initY_Acc_Reading = 0, initZ_Acc_Reading = 0;
+
+struct YPin weightSensors[8];
 
 /* USER CODE END PV */
 
@@ -153,6 +154,49 @@ void getY(uint8_t index, uint8_t delay) {
     HAL_Delay(delay);
 }
 
+void initWeightSensor(struct YPin pin, uint16_t vAt0, uint16_t vAtS, uint16_t wAtS) {
+	pin.voltageAtZeroWeight = vAt0;
+	pin.voltageAtSampledWeight = vAtS;
+	pin.weightAtSampledWeight = wAtS;
+	pin.weightCoef = wAtS * 1.0 / (vAtS - vAt0);
+}
+void initWeightSensors(struct YPin *pins) {
+	pins[0].voltageAtZeroWeight = 1200;
+	pins[0].voltageAtSampledWeight = 1500;
+	pins[0].weightAtSampledWeight = 270;
+
+	pins[1].voltageAtZeroWeight = 1300;
+	pins[1].voltageAtSampledWeight = 1500;
+	pins[1].weightAtSampledWeight = 270;
+
+	pins[2].voltageAtZeroWeight = 1800;
+	pins[2].voltageAtSampledWeight = 2600;
+	pins[2].weightAtSampledWeight = 300;
+
+	pins[3].voltageAtZeroWeight = 2800;
+	pins[3].voltageAtSampledWeight = 3200;
+	pins[3].weightAtSampledWeight = 300;
+
+	pins[4].voltageAtZeroWeight = 1000;
+	pins[4].voltageAtSampledWeight = 1800;
+	pins[4].weightAtSampledWeight = 300;
+
+	pins[5].voltageAtZeroWeight = 1800;
+	pins[5].voltageAtSampledWeight = 2000;
+	pins[5].weightAtSampledWeight = 300;
+
+	pins[6].voltageAtZeroWeight = 1800;
+	pins[6].voltageAtSampledWeight = 2100;
+	pins[6].weightAtSampledWeight = 300;
+
+	pins[7].voltageAtZeroWeight = 1000;
+	pins[7].voltageAtSampledWeight = 21500;
+	pins[7].weightAtSampledWeight = 300;
+
+	for (uint8_t i = 0; i < 8; i++)
+		pins[i].weightCoef = pins[i].weightAtSampledWeight * 1.0 / (pins[i].voltageAtSampledWeight - pins[i].voltageAtZeroWeight);
+}
+
 void mainPage(void) {
     if (changingPage) {
         changingPage = 0;
@@ -181,7 +225,7 @@ void drawBackToHome() {
     HAL_Delay(30);
 }
 
-void weightPage(double KG) {
+void weightPage(void) {
     char *output_text;
     if (changingPage) {
         changingPage = 0;
@@ -190,33 +234,41 @@ void weightPage(double KG) {
         LCD_Clear(0, 0, 240, 320, BLACK);
         LCD_DrawString_Color_With_Delay(0, 40, output_text, BLUE, WHITE, 10);
         drawBackToHome();
+
         for (uint8_t i = 0; i < 8; i++) {
             char temp[10] = "";
             sprintf(temp, "Y%d: ", i);
-            LCD_DrawString_Color(170, 140 + 18 * i, temp, BACKGROUND, WHITE);
+            LCD_DrawString_Color(110, 100 + 18 * i, temp, BACKGROUND, WHITE);
         }
-    }
-    output_text = "[K G]";
-    LCD_DrawString_Color(160, 100, output_text, BLUE, BLACK);
 
+		initWeightSensors(weightSensors);
+    }
+
+    uint16_t sum = 0;
     for (uint8_t counter = 0; counter < 8; counter++) {
         getY(counter, 20);
 
         unsigned int val = HAL_ADC_GetValue(&hadc2);
+        int16_t weightPin = weightSensors[counter].weightCoef * (val - weightSensors[counter].voltageAtZeroWeight);
+        if (weightPin < 0) weightPin = 0;
+        sum += weightPin;
 
         char dec[10] = "";
 
         if (counter < 4)
-			LCD_DrawEllipse(50, 240 - counter * 40, 10, 10, HueToRGB565(val / 4096.0 * 256));
+			LCD_DrawEllipse(25, 240 - counter * 40, 10, 10, HueToRGB565(val / 4096.0 * 256));
 		else
-			LCD_DrawEllipse(100, 120 + (counter - 4) * 40, 10, 10, HueToRGB565(val / 4096.0 * 256));
+			LCD_DrawEllipse(75, 120 + (counter - 4) * 40, 10, 10, HueToRGB565(val / 4096.0 * 256));
 
-        sprintf(dec, "%4d", val);
-        LCD_DrawString(200, 140 + 18 * counter, dec);
+        sprintf(dec, "%4d %5d", val, weightPin);
+        LCD_DrawString_Color(140, 100 + 18 * counter, dec, BACKGROUND, WHITE);
     }
 
+    char output_gram[20] = "";
+    sprintf(output_gram, "%6d Gram", sum);
+    LCD_DrawString_Color(120, 80, output_gram, BLUE, BLACK);
 
-    HAL_Delay(100);
+    HAL_Delay(20);
 }
 
 void accelerometerPage() {
@@ -344,7 +396,7 @@ int main(void) {
     /* USER CODE BEGIN WHILE */
     while (1) {
         if (currentPage == home) mainPage();
-        else if (currentPage == weight) weightPage(0.0);
+        else if (currentPage == weight) weightPage();
         else if (currentPage == accelerometer) accelerometerPage();
         else mainPage();
         if (ucXPT2046_TouchFlag == 1) {

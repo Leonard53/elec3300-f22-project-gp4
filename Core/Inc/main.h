@@ -36,7 +36,12 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+struct YPin {
+	uint16_t voltageAtZeroWeight;
+	uint16_t voltageAtSampledWeight;
+	uint16_t weightAtSampledWeight;
+	double weightCoef;
+};
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -59,7 +64,12 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
 uint16_t HueToRGB565(uint8_t hue);
+
 void getY(uint8_t index, uint8_t delay);
+
+void initWeightSensor(struct YPin pin, uint16_t vAt0, uint16_t vAtS, uint16_t wAtS);
+void initWeightSensors(struct YPin *pins);
+uint16_t calculateWeight(double weightCoef, uint16_t weight);
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
