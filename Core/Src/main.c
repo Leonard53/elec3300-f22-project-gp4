@@ -39,10 +39,11 @@ struct accelerometerRecord {
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define ACCELE_FACTOR 0.0039
-#define ACCELE_ACCEPTABLE_ERROR 2
+#define ACCELE_ACCEPTABLE_ERROR 12
 #define RECORD_MAX_SIZE 100
 #define ADXL_ADDR 0x1D
 #define HMC5883L_ADDR 0x1E
+#define N_SAMPLE 10
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -118,6 +119,7 @@ void clearAcceleRecord() {
     }
     acceleRecordSize = 0;
     distanceTraveled = 0;
+    actualDistance = 0.0;
 }
 
 void clearAngleRecord() {
@@ -136,6 +138,9 @@ void shiftAcceleRecord() {
         accleRecord[i - 1].rawY = accleRecord[i].rawY;
         accleRecord[i - 1].rawZ = accleRecord[i].rawZ;
     }
+    accleRecord[RECORD_MAX_SIZE - 1].rawX = 0;
+    accleRecord[RECORD_MAX_SIZE - 1].rawY = 0;
+    accleRecord[RECORD_MAX_SIZE - 1].rawZ = 0;
     --acceleRecordSize;
 }
 
@@ -149,13 +154,49 @@ void shiftAngleRecord() {
     --angleRecordSize;
 }
 
-void insertAcceleRecord(uint16_t rawX, uint16_t rawY, uint16_t rawZ) {
-    while (acceleRecordSize > RECORD_MAX_SIZE) {
+short isWithin(int16_t A, int16_t B, uint16_t range){
+    return abs(A - B) <= range ? 1 : 0;
+}
+
+int16_t offset(const int16_t value, const int16_t initialReading){
+    return isWithin(value, initialReading, ACCELE_ACCEPTABLE_ERROR) == 1 ? value : 0;
+}
+
+void insertAcceleRecord(int16_t rawX, int16_t rawY, int16_t rawZ) {
+    while (acceleRecordSize >= RECORD_MAX_SIZE) {
         shiftAcceleRecord();
     }
+//    char debug[10] = "";
+//    sprintf(debug, "%03d", acceleRecordSize);
+//    LCD_DrawString_Color(45, 10, debug, BLACK, WHITE);
+//    if (N_SAMPLE > acceleRecordSize) {
+//        // NOT ENOUGH SAMPLE, DISREGRAD THIS DATA
+//        accleRecord[acceleRecordSize].rawX = 0;
+//        accleRecord[acceleRecordSize].rawY = 0;
+//        accleRecord[acceleRecordSize].rawZ = 0;
+//        ++acceleRecordSize;
+//        return;
+//    }
+    rawX = offset(rawX, initX_Acc_Reading);
+    rawY = offset(rawY, initY_Acc_Reading);
+    rawZ = offset(rawZ, initZ_Acc_Reading);
+    int32_t accum_x = 0, accum_y = 0, accum_z = 0;
+    for(uint16_t i = RECORD_MAX_SIZE - acceleRecordSize - 1; i < RECORD_MAX_SIZE; ++i){
+        accum_x += accleRecord[i].rawX;
+        accum_y += accleRecord[i].rawY;
+        accum_z += accleRecord[i].rawZ;
+    }
+    const int16_t avg_x = (int16_t) floor(accum_x / N_SAMPLE);
+    const int16_t avg_y = (int16_t) floor(accum_y / N_SAMPLE);
+    const int16_t avg_z = (int16_t) floor(accum_z / N_SAMPLE);
+    //constant unchanging acceleration,
+    if (rawX != 0) rawX = isWithin(rawX, avg_x, ACCELE_ACCEPTABLE_ERROR) == 1 ? rawX : 0;
+    if (rawY != 0) rawY = isWithin(rawY, avg_y, ACCELE_ACCEPTABLE_ERROR) == 1 ? rawY : 0;
+    if (rawZ != 0) rawZ = isWithin(rawZ, avg_z, ACCELE_ACCEPTABLE_ERROR) == 1 ? rawZ : 0;
     accleRecord[acceleRecordSize].rawX = rawX;
     accleRecord[acceleRecordSize].rawY = rawY;
-    accleRecord[acceleRecordSize++].rawZ = rawZ;
+    accleRecord[acceleRecordSize].rawZ = rawZ;
+    ++acceleRecordSize;
 }
 
 void insertAngleRecord(uint8_t newAngle) {
@@ -248,6 +289,14 @@ void initWeightSensor(struct YPin pin, uint16_t vAt0, uint16_t vAtS, uint16_t wA
     pin.voltageAtSampledWeight = vAtS;
     pin.weightAtSampledWeight = wAtS;
     pin.weightCoef = wAtS * 1.0 / (vAtS - vAt0);
+}
+
+void initAcceleData(){
+    for(uint16_t i = 0; i < RECORD_MAX_SIZE; ++i){
+        accleRecord[i].rawX = 0;
+        accleRecord[i].rawY = 0;
+        accleRecord[i].rawZ = 0;
+    }
 }
 
 void initWeightSensors(struct YPin *pins) {
@@ -378,6 +427,7 @@ void accelerometerPage() {
         /* BEGIN CALIBRATING ACCELEROMETER */
         clearAcceleRecord();
         clearAngleRecord();
+        initAcceleData();
         uint8_t setPWLMode = 0x00; //reset accelerometer
         HAL_I2C_Mem_Write(&hi2c2, ADXL_ADDR << 1, 0x2D, 1, &setPWLMode, 1, 100);
         HAL_Delay(100);
@@ -424,9 +474,9 @@ void accelerometerPage() {
         output_text = "CALIBRATING FINISHED. CONTINUING";
         LCD_DrawString_Color_With_Delay(0, 100, output_text, GREEN, BLACK, 10);
         char x_debug[20] = "", y_debug[20] = "", z_debug[20] = "";
-        sprintf(x_debug, "%05d", initX_Acc_Reading);
-        sprintf(y_debug, "%05d", initY_Acc_Reading);
-        sprintf(z_debug, "%05d", initZ_Acc_Reading);
+        sprintf(x_debug, "%04d", initX_Acc_Reading);
+        sprintf(y_debug, "%04d", initY_Acc_Reading);
+        sprintf(z_debug, "%04d", initZ_Acc_Reading);
         strcat(x_debug, "  x");
         strcat(y_debug, "  y");
         strcat(z_debug, "  z");
@@ -471,36 +521,38 @@ void accelerometerPage() {
     const int16_t thetaY = combineUint_8ts(compassData[2], compassData[3]);
     const int16_t thetaZ = combineUint_8ts(compassData[4], compassData[5]);
     /* DEBUG MESSAGE BELOW */
-    sprintf(x_print, "%+06d", combined_aX);
-    sprintf(y_print, "%+06d", combined_aY);
-    sprintf(z_print, "%+06d", combined_aZ);
+    sprintf(x_print, "%+04d", combined_aX);
+    sprintf(y_print, "%+04d", combined_aY);
+    sprintf(z_print, "%+04d", combined_aZ);
     LCD_DrawString_Color(20, 210, x_print, BLACK, WHITE);
     LCD_DrawString_Color(80, 210, y_print, BLACK, WHITE);
     LCD_DrawString_Color(140, 210, z_print, BLACK, WHITE);
-    sprintf(x_print, "%+06d", initX_Acc_Reading);
-    sprintf(y_print, "%+06d", initY_Acc_Reading);
-    sprintf(z_print, "%+06d", initZ_Acc_Reading);
+    sprintf(x_print, "%+04d", initX_Acc_Reading);
+    sprintf(y_print, "%+04d", initY_Acc_Reading);
+    sprintf(z_print, "%+04d", initZ_Acc_Reading);
     LCD_DrawString_Color(20, 230, x_print, BLACK, WHITE);
     LCD_DrawString_Color(80, 230, y_print, BLACK, WHITE);
     LCD_DrawString_Color(140, 230, z_print, BLACK, WHITE);
-    sprintf(x_print, "%+06d", accleRecord[RECORD_MAX_SIZE / 2].rawX);
-    sprintf(y_print, "%+06d", accleRecord[RECORD_MAX_SIZE / 2].rawY);
-    sprintf(z_print, "%+06d", accleRecord[RECORD_MAX_SIZE / 2].rawZ);
-    LCD_DrawString_Color(20, 270, x_print, BLACK, WHITE);
-    LCD_DrawString_Color(80, 270, y_print, BLACK, WHITE);
-    LCD_DrawString_Color(140, 270, z_print, BLACK, WHITE);
+    sprintf(x_print, "%+04d", accleRecord[RECORD_MAX_SIZE - 1].rawX);
+    sprintf(y_print, "%+04d", accleRecord[RECORD_MAX_SIZE - 1].rawY);
+    sprintf(z_print, "%+04d", accleRecord[RECORD_MAX_SIZE - 1].rawZ);
+    LCD_DrawString_Color(20, 250, x_print, BLACK, WHITE);
+    LCD_DrawString_Color(80, 250, y_print, BLACK, WHITE);
+    LCD_DrawString_Color(140, 250, z_print, BLACK, WHITE);
+    sprintf(x_print, "%03d", acceleRecordSize);
+    LCD_DrawString_Color(10, 10, x_print, BLACK, WHITE);
     /* DEBUG MESSAGE ABOVE */
 
     // All axes have a scale factor of 7.8
-    const double finalizedX = (abs(combined_aX) >= abs(initX_Acc_Reading) + ACCELE_ACCEPTABLE_ERROR) ? (combined_aX *
+    const double finalizedX = (isWithin(combined_aX, initX_Acc_Reading, ACCELE_ACCEPTABLE_ERROR) == 0) ? (combined_aX *
                                                                                                         ACCELE_FACTOR)
                                                                                                      : 0.0;
-    const double finalizedY = (abs(combined_aY) >= abs(initY_Acc_Reading) + ACCELE_ACCEPTABLE_ERROR) ? (combined_aY *
-                                                                                                        ACCELE_FACTOR)
-                                                                                                     : 0.0;
-    const double finalizedZ = (abs(combined_aZ) >= abs(initZ_Acc_Reading) + ACCELE_ACCEPTABLE_ERROR) ? (combined_aZ *
-                                                                                                        ACCELE_FACTOR)
-                                                                                                     : 0.0;
+    const double finalizedY = (isWithin(combined_aY, initY_Acc_Reading, ACCELE_ACCEPTABLE_ERROR) == 0) ? (combined_aY *
+                                                                                                          ACCELE_FACTOR)
+                                                                                                       : 0.0;
+    const double finalizedZ = (isWithin(combined_aZ, initZ_Acc_Reading, ACCELE_ACCEPTABLE_ERROR) == 0) ? (combined_aZ *
+                                                                                                          ACCELE_FACTOR)
+                                                                                                       : 0.0;
     sprintf(x_print, "%+0.2f", finalizedX);
     sprintf(y_print, "%+0.2f", finalizedY);
     sprintf(z_print, "%+0.2f", finalizedZ);
@@ -521,13 +573,13 @@ void accelerometerPage() {
     insertAngleRecord(polishedAngle);
     insertAcceleRecord(combined_aX, combined_aY, combined_aZ);
     //if(isRotating() == 1)
-    updateDistance(combined_aX, combined_aY, combined_aZ); //take in the most recent n entries for average calculation
+    //take in the most recent n entries for average calculation
+    updateDistance(combined_aX, combined_aY, combined_aZ);
     char dis_print[10] = "";
     sprintf(dis_print, "%05lu", distanceTraveled);
     LCD_DrawString_Color(100, 190, dis_print, WHITE, BLACK);
     sprintf(dis_print, "%0.3f", actualDistance);
     LCD_DrawString_Color(160, 190, dis_print, WHITE, BLACK);
-    HAL_Delay(10);
     free(acceleromterData);
     free(compassData);
 }

@@ -73,7 +73,7 @@ void shiftAcceleRecord();
 
 void shiftAngleRecord();
 
-void insertAcceleRecord(uint16_t rawX, uint16_t rawY, uint16_t rawZ);
+void insertAcceleRecord(int16_t rawX, int16_t rawY, int16_t rawZ);
 
 void insertAngleRecord(uint8_t newAngle);
 
