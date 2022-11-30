@@ -398,10 +398,10 @@ void weightPage(void) {
         if (weightPin < 0) weightPin = 0;
         sum += weightPin;
 
-//        if (counter < 4)
-//        	LCD_DrawHeatCircle(30, 240 - counter * 40, 30, 85 - val * 85 / 4096, 85);
-//		else
-//			LCD_DrawHeatCircle(70, 120 + (counter - 4) * 40, 30, 85 - val * 85 / 4096, 85);
+        if (counter < 4)
+        	LCD_DrawHeatCircle(30, 240 - counter * 40, 30, 85 - val * 85 / 4096, 85);
+		else
+			LCD_DrawHeatCircle(70, 120 + (counter - 4) * 40, 30, 85 - val * 85 / 4096, 85);
 
         LCD_SetPinColor(&weightSensorsData[counter], 85 - val * 85 / 4096);
 
@@ -409,13 +409,11 @@ void weightPage(void) {
         sprintf(dec, "%4d %5d", val, weightPin);
         LCD_DrawString_Color(140, 100 + 18 * counter, dec, BACKGROUND, WHITE);
     }
-	LCD_PrintHeatMap(weightSensorsData);
+//	LCD_PrintHeatMap(weightSensorsData);
 
     char output_gram[20] = "";
     sprintf(output_gram, "%6d Gram", sum);
     LCD_DrawString_Color(120, 80, output_gram, BLUE, WHITE);
-
-    HAL_Delay(20);
 }
 
 void accelerometerPage() {
