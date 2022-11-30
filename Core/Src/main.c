@@ -284,8 +284,7 @@ void initWeightSensors(struct YPin *pins) {
     pins[7].weightAtSampledWeight = 300;
 
     for (uint8_t i = 0; i < 8; i++)
-        pins[i].weightCoef =
-                pins[i].weightAtSampledWeight * 1.0 / (pins[i].voltageAtSampledWeight - pins[i].voltageAtZeroWeight);
+        pins[i].weightCoef = pins[i].weightAtSampledWeight * 1.0 / (pins[i].voltageAtSampledWeight - pins[i].voltageAtZeroWeight);
 }
 
 void initializeHMC5883L() {
@@ -339,8 +338,6 @@ void weightPage(void) {
             sprintf(temp, "Y%d: ", i);
             LCD_DrawString_Color(110, 100 + 18 * i, temp, BACKGROUND, WHITE);
         }
-
-        initWeightSensors(weightSensors);
     }
 
     uint16_t sum = 0;
@@ -359,7 +356,7 @@ void weightPage(void) {
 
         LCD_SetPinColor(&weightSensorsData[counter], 85 - val * 85 / 4096);
 
-        char dec[12] = "";
+        char dec[20] = "";
         sprintf(dec, "%4d %5d", val, weightPin);
         LCD_DrawString_Color(140, 100 + 18 * counter, dec, BACKGROUND, WHITE);
     }
@@ -577,6 +574,10 @@ int main(void)
   LCD_GramScan(1);
   LCD_Clear(0, 0, 240, 320, BLACK);
   mainPage();
+
+  initWeightSensors(weightSensors);
+  LCD_InitHeatCoords(weightSensorsData);
+
   HAL_Delay(500);
   /* USER CODE END 2 */
 

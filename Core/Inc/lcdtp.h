@@ -100,6 +100,8 @@ void LCD_SetPinColor(struct YPinData *data, uint16_t color);
 
 uint16_t LCD_DistSqr(struct YPinData *data, uint16_t x, uint16_t y);
 
+void LCD_PrintHeatMap(struct YPinData *data);
+
 void LCD_DrawCross(uint16_t usX, uint16_t usY);
 
 void LCD_DrawChar_Color(uint16_t usC, uint16_t usP, const char cChar, uint16_t usColor_Background,
