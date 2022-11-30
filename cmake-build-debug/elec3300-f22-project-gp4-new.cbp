@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="elec3300-f22-project-gp4-new"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="elec3300-f22-project-gp4-new.elf">
+				<Option output="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/elec3300-f22-project-gp4-new.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DDEBUG"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32F103xE"/>
+					<Add directory="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/Core/Inc"/>
+					<Add directory="/Users/leonardyeung/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.4/Drivers/STM32F1xx_HAL_Driver/Inc"/>
+					<Add directory="/Users/leonardyeung/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.4/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="/Users/leonardyeung/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.4/Drivers/CMSIS/Device/ST/STM32F1xx/Include"/>
+					<Add directory="/Users/leonardyeung/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.4/Drivers/CMSIS/Include"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/arm-none-eabi"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/backward"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/include"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/include-fixed"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 elec3300-f22-project-gp4-new.elf"/>
+					<CompileFile command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="elec3300-f22-project-gp4-new.elf/fast">
+				<Option output="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/elec3300-f22-project-gp4-new.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DDEBUG"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32F103xE"/>
+					<Add directory="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/Core/Inc"/>
+					<Add directory="/Users/leonardyeung/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.4/Drivers/STM32F1xx_HAL_Driver/Inc"/>
+					<Add directory="/Users/leonardyeung/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.4/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="/Users/leonardyeung/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.4/Drivers/CMSIS/Device/ST/STM32F1xx/Include"/>
+					<Add directory="/Users/leonardyeung/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.4/Drivers/CMSIS/Include"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/arm-none-eabi"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include/c++/11.3.1/backward"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/include"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/include-fixed"/>
+					<Add directory="/Applications/ArmGNUToolchain/11.3.rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/11.3.1/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 elec3300-f22-project-gp4-new.elf/fast"/>
+					<CompileFile command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/local/bin/gmake -j8 -f &quot;/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/Core/Inc/ascii.h">
+			<Option target="elec3300-f22-project-gp4-new.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/Core/Inc/lcdtp.h">
+			<Option target="elec3300-f22-project-gp4-new.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/Core/Inc/main.h">
+			<Option target="elec3300-f22-project-gp4-new.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/Core/Inc/stm32f1xx_hal_conf.h">
+			<Option target="elec3300-f22-project-gp4-new.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/Core/Inc/stm32f1xx_it.h">
+			<Option target="elec3300-f22-project-gp4-new.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/Core/Inc/xpt2046.h">
+			<Option target="elec3300-f22-project-gp4-new.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/Core/Src/lcdtp.c">
+			<Option target="elec3300-f22-project-gp4-new.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/Core/Src/main.c">
+			<Option target="elec3300-f22-project-gp4-new.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/Core/Src/stm32f1xx_hal_msp.c">
+			<Option target="elec3300-f22-project-gp4-new.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/Core/Src/stm32f1xx_it.c">
+			<Option target="elec3300-f22-project-gp4-new.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/Core/Src/syscalls.c">
+			<Option target="elec3300-f22-project-gp4-new.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/Core/Src/sysmem.c">
+			<Option target="elec3300-f22-project-gp4-new.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/Core/Src/system_stm32f1xx.c">
+			<Option target="elec3300-f22-project-gp4-new.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/Core/Src/xpt2046.c">
+			<Option target="elec3300-f22-project-gp4-new.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/Core/Startup/startup_stm32f103vetx.s">
+			<Option target="elec3300-f22-project-gp4-new.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/STM32F103VETX_FLASH.ld">
+			<Option target="elec3300-f22-project-gp4-new.elf"/>
+		</Unit>
+		<Unit filename="/Users/leonardyeung/Documents/comp-upstream-leonardyeung/ELEC/3300/elec3300-f22-project-gp4-new/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
