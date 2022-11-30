@@ -569,6 +569,7 @@ int main(void)
   HAL_ADCEx_Calibration_Start(&hadc2);
   HAL_ADC_PollForConversion(&hadc2, 1000);
   HAL_ADC_Start(&hadc2);
+  macXPT2046_CS_DISABLE();
   LCD_INIT();
   currentPage = home;
   HAL_Delay(50);

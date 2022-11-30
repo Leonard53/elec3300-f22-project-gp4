@@ -21,7 +21,7 @@
 ../Core/Src/lcdtp.c:454:6:LCD_InitHeatCoords	12	static
 ../Core/Src/lcdtp.c:464:6:LCD_SetPinColor	0	static
 ../Core/Src/lcdtp.c:468:10:LCD_DistSqr	24	static
-../Core/Src/lcdtp.c:472:6:LCD_PrintHeatMap	80	static
+../Core/Src/lcdtp.c:472:6:LCD_PrintHeatMap	72	static
 ../Core/Src/lcdtp.c:510:6:LCD_DrawChar_Color	16	static
 ../Core/Src/lcdtp.c:538:6:LCD_DrawCross	16	static
 ../Core/Src/lcdtp.c:545:6:LCD_DrawString_Color	32	static
