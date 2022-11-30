@@ -1,9 +1,5 @@
-../Core/Src/xpt2046.c:30:13:XPT2046_DelayUS	24	static
-../Core/Src/xpt2046.c:44:13:XPT2046_WriteCMD	24	static
+../Core/Src/xpt2046.c:44:13:XPT2046_WriteCMD	16	static
 ../Core/Src/xpt2046.c:67:17:XPT2046_ReadCMD	16	static
-../Core/Src/xpt2046.c:92:17:XPT2046_ReadAdc	16	static
-../Core/Src/xpt2046.c:100:13:XPT2046_ReadAdc_XY	24	static
-../Core/Src/xpt2046.c:237:16:XPT2046_ReadAdc_Smooth_XY	80	static
-../Core/Src/xpt2046.c:311:16:XPT2046_Calculate_CalibrationFactor	32	static
-../Core/Src/xpt2046.c:369:9:XPT2046_Touch_Calibrate	152	static
-../Core/Src/xpt2046.c:493:1:XPT2046_Get_TouchedPoint	40	static
+../Core/Src/xpt2046.c:237:16:XPT2046_ReadAdc_Smooth_XY	64	static
+../Core/Src/xpt2046.c:369:9:XPT2046_Touch_Calibrate	144	static
+../Core/Src/xpt2046.c:493:1:XPT2046_Get_TouchedPoint	48	static

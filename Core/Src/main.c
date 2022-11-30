@@ -70,8 +70,6 @@ uint16_t angleRecord[RECORD_MAX_SIZE]; //storing the past data of the angle the 
 short acceleRecordSize, angleRecordSize = 0; //storing the current index of accleRecord/angleRecord. Elemets should shift left if full
 uint32_t distanceTraveled = 0; //storing the distance travelled in total. Reset when users return to home.
 double actualDistance = 0.0;
-struct accelerometerRecord accleRecord[RECORD_MAX_SIZE]; //storing the past data of the accelerometer for calculating distance
-short acceleRecordSize = 0; //storing the current index of accleRecord. Elemets should shift left if full
 struct YPin weightSensors[8];
 struct YPinData weightSensorsData[8];
 /* USER CODE END PV */
