@@ -59,29 +59,15 @@
       <change beforePath="$PROJECT_DIR$/../../../.metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../.metadata/version.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.metadata/version.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../COMP/3111/Project/comp3111_22f_g44_project" beforeDir="false" afterPath="$PROJECT_DIR$/../../../COMP/3111/Project/comp3111_22f_g44_project" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Src/lcdtp.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/lcdtp.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Src/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Debug/Core/Src/lcdtp.su" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/Core/Src/lcdtp.su" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Debug/Core/Src/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/Core/Src/main.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Debug/Core/Src/main.su" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/Core/Src/main.su" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Debug/Core/Src/xpt2046.o" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/Core/Src/xpt2046.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Debug/elec3300-f22-project-gp4-new.elf" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/elec3300-f22-project-gp4-new.elf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Debug/elec3300-f22-project-gp4-new.list" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/elec3300-f22-project-gp4-new.list" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Debug/elec3300-f22-project-gp4-new.map" beforeDir="false" afterPath="$PROJECT_DIR$/Debug/elec3300-f22-project-gp4-new.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-546400779c9a1bd7001e.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-e6c5bef476557355a188.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-11-29T23-02-17-0673.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-11-30T00-04-54-0676.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-elec3300-f22-project-gp4-new.elf-Debug-26afd66277a162da13ed.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.23.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.23.2/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.23.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.23.2/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/elec3300-f22-project-gp4-new.elf.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/elec3300-f22-project-gp4-new.elf.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/elec3300-f22-project-gp4-new.elf.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/elec3300-f22-project-gp4-new.elf.dir/flags.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/elec3300-f22-project-gp4-new.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/elec3300-f22-project-gp4-new.cbp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,11 +104,6 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="elec3300-f22-project-gp4-new.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="elec3300-f22-project-gp4-new" TARGET_NAME="elec3300-f22-project-gp4-new.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="elec3300-f22-project-gp4-new" RUN_TARGET_NAME="elec3300-f22-project-gp4-new.elf">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -139,6 +120,7 @@
       <updated>1669762216033</updated>
       <workItem from="1669762217258" duration="9727000" />
       <workItem from="1669777751542" duration="782000" />
+      <workItem from="1670073699124" duration="6000" />
     </task>
     <servers />
   </component>
